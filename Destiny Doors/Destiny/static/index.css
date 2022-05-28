@@ -25,7 +25,7 @@ body {
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
     margin-top: -53px;
-    width: 59vw;
+    width: 100%;
     position: relative;
     transition: all 0.7s ease;
     padding-left: 7%;
@@ -136,10 +136,10 @@ body {
 }
 
 .navbar p {
-    font-size: 30px;
+    font-size: 22px;
     font-style: normal;
     color: white;
-    padding: 10px 0 0 20px;
+    padding: 6px 0 0 20px;
     text-transform: uppercase;
 }
 
