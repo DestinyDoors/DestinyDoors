@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destiny Doors</title>
-    <link rel="stylesheet" href="../static/index.css">
+    <link rel="stylesheet" href="../static/base.css"> {% block head %} {% endblock head %}
 </head>
 
 <body>
@@ -15,30 +15,24 @@
         <p>Destiny Doors</p>
         <div id="trapezoid">
 
-            <a href="#About" class="expandHome">Home</a>
-            <a href="#About" class="expandHome">About</a>
-            <a href="#About" class="expandHome">Services</a>
-            <a href="#About" class="expandHome">Gallery</a>
-            <a href="#About" class="expandHome">Contact</a>
-            <a href="/meet" class="expandHome">Meet the children</a>
-
+            <a href="/" class="expandHome">Home</a>
+            <a href="/about" class="expandHome">About</a>
+            <a href="/adopt" class="expandHome">Adopt</a>
+            <a href="/contact" class="expandHome">Contact</a>
+            <a href="/child" class="expandHome">Meet the children</a>
+            <a href="/donation" class="expandHome">Help Us</a>
 
         </div>
     </nav>
-
-    <section class="main">
-        <img src="../static/child-adoption-india.jpg" alt="">
-        <div class="heading">
-            <div class="vertical-center">
-                <h2>We aim every <br> orphan child reach <br>to its own</h2>
-                <hr>
-                <h1>destiny</h1>
-            </div>
-        </div>
-
-    </section>
+    {% block body %} {% endblock body %}
 </body>
 <script src="../static/index.js">
+</script>
+
+<script>
+    document.querySelector('.img-btn').addEventListener('click', function() {
+        document.querySelector('.cont').classList.toggle('s-signup')
+    });
 </script>
 
 </html>
