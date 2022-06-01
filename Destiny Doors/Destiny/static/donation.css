@@ -28,7 +28,7 @@ button {
     width: 900px;
     height: 550px;
     background: #d2d2d2;
-    margin: 50px 266px;
+    margin: 50px 16px;
     border-radius: 30px;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
@@ -48,7 +48,7 @@ h2 {
     width: 100%;
     font-size: 30px;
     text-align: center;
-}
+}     
 
 label {
     display: block;
