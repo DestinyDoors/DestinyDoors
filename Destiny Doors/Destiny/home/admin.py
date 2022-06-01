@@ -6,4 +6,5 @@ from .models import *
 
 # Register your models here.
 admin.site.register(cateogry)
+
 admin.site.register(agegroup)
