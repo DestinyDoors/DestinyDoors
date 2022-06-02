@@ -1,8 +1,18 @@
 from django.shortcuts import render, HttpResponse
+from .models import agegroup
+from math import *
+
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    Agegroups = agegroup.objects.all()
+    print(Agegroups)
+    n=len(agegroup)
+    slide = n//4 + ceil((n/4)-n//4)
+    params = {'no_of_slides': slide, 'range':range(1,slide), 'agegroup': Agegroups}
+    return render(request, 'index.html', params)
+
+
 def about(request):
     return render(request, 'about.html')
 def contact(request):

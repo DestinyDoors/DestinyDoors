@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block head %}
+<link rel="stylesheet" href="../static/meetchildren.css"> {% endblock head %} {% block body %}
+
+
+<section class="main">
+    <img class="img" src="../static/IMG_20220531_142817.jpg" alt="" style="width:99vw; height: 131vh;">
+</section>
+
+<nav class="navbar2">
+
+
+    <ul>
+
+        <li>
+            <a href="#home" class="dot active" data-scroll="home">
+                <span>New Born</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#about" class="dot" data-scroll="about">
+                <span>Age 3 to 5</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#service" class="dot" data-scroll="service">
+                <span>Age 5 to 10</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#project" class="dot" data-scroll="project">
+                <span>Age 11 to 15</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#contact" class="dot" data-scroll="contact">
+                <span>Age 16 to 18</span>
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<section class="sec" id="home">New Born</section>
+<section class="sec" id="about">Age 3 to 5</section>
+<section class="sec" id="service">Age 6 to 10</section>
+<section class="sec" id="project">Age 11 to 15</section>
+<section class="sec" id="contact">Age 16 to 18</section>
+
+{% endblock body %}
