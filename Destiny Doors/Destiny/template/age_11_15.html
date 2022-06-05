@@ -1,8 +1,18 @@
-{% extends 'base.html' %} {% block head %}
+{% block head %}
 <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <link rel="stylesheet" href="../static/meetchildren.css">
+
 <style>
+    /* banner */
+    
+    .main img {
+        height: 93vh;
+        width: 99vw;
+        z-index: 1;
+    }
+    /*   */
+    
     .col-md-3 {
         display: inline-block;
         margin-left: -4px;
@@ -28,11 +38,35 @@
     body .carousel-control-prev-icon,
     body .carousel-control-next-icon {
         background-color: blue;
+        margin: 0px 175px 0 0;
+    }
+    
+    .carousel-control-next {
+        right: 90px;
+    }
+    
+    body .carousel-control-next-icon {
+        margin: 0px 50px 0 0;
     }
     
     body .no-padding {
         padding-left: 0;
         padding-right: 0;
+    }
+    
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: 346px;
+        margin-left: auto;
+    }
+    
+    .card-text {
+        font-size: medium;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 </style>
 {% endblock head %} {% block body %}
@@ -40,118 +74,112 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>{% load static %}
 
+
 <nav class="navbar2">
 
 
     <ul>
 
-        <ul>
-
-            <li>
-                <a href="/" class="dot" data-scroll="home">
-                    <span>Home</span>
-                </a>
-            </li>
+        <li>
+            <a href="/" class="dot" data-scroll="home">
+                <span>Home</span>
+            </a>
+        </li>
 
 
-            <li>
-                <a href="/child" class="dot active" data-scroll="home">
-                    <span>New Born</span>
-                </a>
-            </li>
+        <li>
+            <a href="/child" class="dot " data-scroll="home">
+                <span>New Born</span>
+            </a>
+        </li>
 
-            <li>
-                <a href="/age_3_5" class="dot" data-scroll="about">
-                    <span>Age 3 to 5</span>
-                </a>
-            </li>
+        <li>
+            <a href="/age_3_5" class="dot" data-scroll="about">
+                <span>Age 3 to 5</span>
+            </a>
+        </li>
 
-            <li>
-                <a href="age_6_10" class="dot" data-scroll="service">
-                    <span>Age 6 to 10</span>
-                </a>
-            </li>
+        <li>
+            <a href="age_6_10" class="dot" data-scroll="service">
+                <span>Age 6 to 10</span>
+            </a>
+        </li>
 
-            <li>
-                <a href="age_11_15" class="dot" data-scroll="project">
-                    <span>Age 11 to 15</span>
-                </a>
-            </li>
+        <li>
+            <a href="age_11_15" class="dot active" data-scroll="project">
+                <span>Age 11 to 15</span>
+            </a>
+        </li>
 
-            <li>
-                <a href="age_16_18" class="dot" data-scroll="contact">
-                    <span>Age 16 to 18</span>
-                </a>
-            </li>
+        <li>
+            <a href="age_16_18" class="dot" data-scroll="contact">
+                <span>Age 16 to 18</span>
+            </a>
+        </li>
 
-        </ul>
+    </ul>
 
 </nav>
 
+<div class="container">
+    <h1>New Boarn Baby</h1>
+    <div id="demo" class="carousel slide my-3" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
 
-<section class="sec" id="home">
+            {% for i in range %}
+            <li data-target="#demo" data-slide-to="{{i}}"></li>
+            {% endfor %}
+        </ul>
 
+        <!--Slideshow starts here -->
+        <div class="container carousel-inner no-padding">
 
-    <div class="container">
-        <h1>Age 10 to 15</h1>
-        <div id="demo" class="carousel slide my-3" data-ride="carousel">
-            <ul class="carousel-indicators">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-
-                {% for i in range %}
-                <li data-target="#demo" data-slide-to="{{i}}"></li>
-                {% endfor %}
-            </ul>
-
-            <!--Slideshow starts here -->
-            <div class="container carousel-inner no-padding">
-
-                <div class="carousel-item active">
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <div class="card" style="width: 18rem;">
-                            <img src='/media/{{age_11_15.0.image}}' class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{age_11_15.0.child_name}}</h5>
-                                <p class="card-text">{{age_11_15.0.taught}}</p>
-                                <a href="#" class="btn btn-primary">Know More</a>
-                            </div>
+            <div class="carousel-item active">
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='/media/{{newboarn.0.image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{newboarn.0.child_name}}</h5>
+                            <p class="card-text">{{newboarn.0.taught}}</p>
+                            <a href="#" class="btn btn-primary">Know More</a>
                         </div>
                     </div>
-
-
-                    {% for i in age_11_15|slice:"1:"%}
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <div class="card" style="width: 18rem;">
-                            <img src='/media/{{i.image}}' class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{i.child_name}}</h5>
-                                <p class="card-text">{{i.taught}}</p>
-                                <a href="#" class="btn btn-primary">Know More</a>
-                            </div>
-                        </div>
-                    </div>
-                    {% if forloop.counter|divisibleby:2 and forloop.counter > 0 and not forloop.last %}
-                </div>
-                <div class="carousel-item">
-                    {% endif %} {% endfor %}
                 </div>
 
 
-
+                {% for i in newboarn|slice:"1:"%}
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{i.child_name}}</h5>
+                            <p class="card-text">{{i.taught}}</p>
+                            <a href="#" class="btn btn-primary">Know More</a>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:2 and forloop.counter > 0 and not forloop.last %}
             </div>
+            <div class="carousel-item">
+                {% endif %} {% endfor %}
+            </div>
+
+
+
         </div>
-        <!-- left and right controls for the slide -->
-        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#demo" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </a>
-
-
-
     </div>
+    <!-- left and right controls for the slide -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
 
-</section>
+
+
+</div>
+
 
 {% endblock body %}
