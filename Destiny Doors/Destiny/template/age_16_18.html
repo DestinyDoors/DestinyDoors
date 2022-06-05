@@ -1,4 +1,4 @@
- {% block head %}
+{% block head %}
 <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <link rel="stylesheet" href="../static/meetchildren.css">
@@ -20,11 +20,10 @@
     
     .carousel-indicators .active {
         background-color: blue;
-        margin: 27px 0px -50px 6px;
     }
     
     .col-md-3 img {
-        width: 351px;
+        width: 255px;
         height: 355px;
     }
     
@@ -47,7 +46,7 @@
     }
     
     body .carousel-control-next-icon {
-        margin: 0px 90px 0 0;
+        margin: 0px 50px 0 0;
     }
     
     body .no-padding {
@@ -62,19 +61,12 @@
         margin-right: 346px;
         margin-left: auto;
     }
-    /* cards */
     
     .card-text {
         font-size: medium;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-    }
-    
-    .col-xs-3,
-    col-sm-3,
-    col-md-3 {
-        margin: 0 29px 0 60px;
     }
 </style>
 {% endblock head %} {% block body %}
@@ -96,7 +88,7 @@
 
 
         <li>
-            <a href="/child" class="dot active" data-scroll="home">
+            <a href="/child" class="dot " data-scroll="home">
                 <span>New Born</span>
             </a>
         </li>
@@ -120,7 +112,7 @@
         </li>
 
         <li>
-            <a href="age_16_18" class="dot" data-scroll="contact">
+            <a href="age_16_18" class="dot active" data-scroll="contact">
                 <span>Age 16 to 18</span>
             </a>
         </li>
@@ -145,23 +137,25 @@
 
             <div class="carousel-item active">
                 <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 22rem;">
+                    <div class="card" style="width: 18rem;">
                         <img src='/media/{{newboarn.0.image}}' class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{newboarn.0.child_name}}</h5>
                             <p class="card-text">{{newboarn.0.taught}}</p>
-                            <a href="#" class="btn btn-primary">Know About Me</a>
+                            <a href="#" class="btn btn-primary">Know More</a>
                         </div>
                     </div>
                 </div>
+
+
                 {% for i in newboarn|slice:"1:"%}
                 <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 22rem;">
+                    <div class="card" style="width: 18rem;">
                         <img src='/media/{{i.image}}' class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{i.child_name}}</h5>
                             <p class="card-text">{{i.taught}}</p>
-                            <a href="#" class="btn btn-primary">Know About Me</a>
+                            <a href="#" class="btn btn-primary">Know More</a>
                         </div>
                     </div>
                 </div>
