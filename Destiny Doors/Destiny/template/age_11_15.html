@@ -138,17 +138,17 @@
             <div class="carousel-item active">
                 <div class="col-xs-3 col-sm-3 col-md-3">
                     <div class="card" style="width: 18rem;">
-                        <img src='/media/{{newboarn.0.image}}' class="card-img-top" alt="...">
+                        <img src='/media/{{age_11_15y.0.image}}' class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">{{newboarn.0.child_name}}</h5>
-                            <p class="card-text">{{newboarn.0.taught}}</p>
+                            <h5 class="card-title">{{age_11_15y.0.child_name}}</h5>
+                            <p class="card-text">{{age_11_15y.0.taught}}</p>
                             <a href="#" class="btn btn-primary">Know More</a>
                         </div>
                     </div>
                 </div>
 
 
-                {% for i in newboarn|slice:"1:"%}
+                {% for i in age_11_15y|slice:"1:"%}
                 <div class="col-xs-3 col-sm-3 col-md-3">
                     <div class="card" style="width: 18rem;">
                         <img src='/media/{{i.image}}' class="card-img-top" alt="...">
