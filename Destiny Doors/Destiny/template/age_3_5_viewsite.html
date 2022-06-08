@@ -1,0 +1,107 @@
+{% block title %} {% endblock %} {% block head %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="swiper-5.4.2/package/css/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+    html,
+    body {
+        background: linear-gradient(-45deg, #2c0b54, #31027c, #331b6e, #100925);
+        position: relative;
+        height: 100%;
+    }
+    
+    body {
+        font-size: 14px;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+    
+    .swiper-container {
+        width: 100%;
+        height: 350px;
+        border-radius: 10px;
+    }
+    
+    .slide1 {
+        background-position: center;
+        height: 500px;
+        width: 500px;
+    }
+    
+    .slide11 {
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    h2 {
+        color: burlywood;
+        font-family: auto;
+        font-size: 40px;
+    }
+    
+    h3 {
+        font-family: auto;
+        color: yellowgreen;
+        margin-left: -40px;
+        font-size: 30px;
+    }
+    
+    .carousel-caption {
+        font-family: monospace;
+        color: #ffffff;
+        text-align: left;
+        height: 530px;
+        margin: 0px -98px -261px -51px;
+    }
+    
+    .swiper-slide {
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    h3 span {
+        color: bisque;
+        font-size: 21px;
+        font-family: cursive;
+    }
+</style>
+{% endblock head %} {% block body %}
+
+<br><br><br><br><br><br><br><br>
+<div class="container">
+
+    <div class="col-md-6 col-sm-6 col-xs-6">
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide  active">
+                    <img src="/media//{{age_3_5y.image}}" alt="" class="slide1">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="swiper-container">
+
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide11 active">
+                    <h2>Meet Our Child</h2>
+                    <div class="carousel-caption">
+                        <h3>Name : <span>{{age_3_5y.child_name}}</span></h3>
+                        <h3>Age : <span>{{age_3_5y.age}}</span></h3>
+                        <h3>Taught : <span>{{age_3_5y.taught}}</span></h3>
+                        <h3>Hobby : <span>{{age_3_5y.Hobby}}</span></h3>
+                        <h3>About Child : <span>{{age_3_5y.description}}</span></h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

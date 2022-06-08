@@ -60,11 +60,7 @@ body {
 
 .navbar2 ul li .dot span {
     display: inline-block;
-    background: #bc2418;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #333399, #ff00cc);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #333399, #d40505);
+    background: #0000001f;
     letter-spacing: 0px;
     width: 144px;
     padding: 10px 25px;

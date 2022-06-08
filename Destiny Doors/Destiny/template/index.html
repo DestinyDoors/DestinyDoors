@@ -1,17 +1,89 @@
 {% extends 'base.html' %} {% block head %}
-<link rel="stylesheet" href="../static/index.css"> {% endblock head %} {% block body %}
+<link rel="stylesheet" href="../static/index.css">
+<style>
+    /* loader css */
+    
+    .loader_main {
+        position: absolute;
+        top: 45%;
+        left: 45%;
+        width: 200px;
+        height: 40px;
+        margin: -20px 0 0 -71px;
+        background: #fff;
+        filter: contrast(20);
+    }
+    
+    .loader_main .loader_dot1 {
+        position: absolute;
+        margin: 15px;
+        width: 16px;
+        height: 16px;
+        background: #000;
+        border-radius: 50%;
+        filter: blur(4px);
+        transform: translateX(0);
+        animation: dot 3s infinite;
+    }
+    
+    .loader_main .loader_dots1 {
+        margin: 15px 0 0 31px;
+        transform: translateX(0);
+        animation: dots 3s infinite;
+    }
+    
+    .loader_main .loader_dots1 span {
+        display: block;
+        float: left;
+        width: 16px;
+        height: 16px;
+        margin-left: 16px;
+        filter: blur(4px);
+        background: #000;
+        border-radius: 50%;
+    }
+    
+    @keyframes dot1 {
+        50% {
+            transform: translateX(160px);
+        }
+    }
+    
+    @keyframes dots1 {
+        50% {
+            transform: translateX(-30px);
+        }
+    }
+</style>{% endblock head %} {% block body %}
 
-
-<section class="main">
-    <img src="../static/child-adoption-india.jpg" alt="">
-    <div class="heading">
-        <div class="vertical-center">
-            <h2>We aim every <br> orphan child reach <br>to its own</h2>
-            <hr>
-            <h1>destiny</h1>
+<body onload="myFunction()">
+    <div id="loader" class="Loader_main">
+        <span class="Loader_dot1"></span>
+        <div class="Loader_dots1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
+    <section class="main">
+        <img src="../static/child-adoption-india.jpg" alt="">
+        <div class="heading">
+            <div class="vertical-center">
+                <h2>We aim every <br> orphan child reach <br>to its own</h2>
+                <hr>
+                <h1>destiny</h1>
+            </div>
+        </div>
 
-</section>
+    </section>
+    <script>
+        var loading = document.getElementById('loader')
 
+        function myFunction() {
+            loading.style.display = 'none';
+        }
+    </script>
+</body>
 {% endblock body %}
