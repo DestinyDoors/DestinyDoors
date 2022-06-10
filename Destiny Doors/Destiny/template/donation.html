@@ -3,10 +3,28 @@
 <html lang="en">
 
 {% block head %}
-<link rel="stylesheet" href="../static/donation.css"> {% endblock head %} {% block body %}
+<link rel="stylesheet" href="../static/donation.css">
+<style>
+    .whole {
+        display: flex;
+    }
+    
+    .cont {
+        overflow: hidden;
+        position: relative;
+        width: 900px;
+        height: 550px;
+        background: #d2d2d2;
+        margin: 50px 106px;
+        border-radius: 30px;
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    }
+</style>
+{% endblock head %} {% block body %}
 <div class="whole">
 
     <div class="cont">
+
         <div class="form sign-in">
             <h2>Sign In</h2>
             <label>
@@ -62,6 +80,6 @@
             </div>
         </div>
     </div>
-
+    <img src="../static/donate-to-orphans-share-to-children-care-vector-32811885-removebg-preview.png" alt="">
 </div>
 {% endblock body %}
