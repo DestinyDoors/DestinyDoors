@@ -9,7 +9,7 @@
     />
     <style>
         body {
-            background: linear-gradient(-45deg, #291444, #18033a, #3b1951, #110d20);
+            background: whitesmoke;
             height: 100vh;
         }
         
@@ -33,7 +33,7 @@
         }
         
         .about-right h1 {
-            color: bisque;
+            color: #8f1414;
             font-size: 50px;
             margin-bottom: 5px;
             letter-spacing: 27px;
@@ -42,7 +42,7 @@
         }
         
         .about-right p {
-            color: thistle;
+            color: #2929b0;
             font-size: 22px;
             font-family: inherit;
             font-weight: 900;
@@ -80,6 +80,99 @@
             font-size: 19px;
             margin-right: 10px;
             color: #e74d06;
+        }
+        /* card */
+        
+        .card {
+            display: grid;
+            grid-template-columns: 235px;
+            grid-template-rows: 26px 107px 80px;
+            grid-template-areas: "image" "text" "stats";
+            border-radius: 16px;
+            background: white;
+            /* box-shadow: 5px 5px 15px rgb(0 0 0 / 90%); */
+            font-family: roboto;
+            text-align: center;
+            transition: 0.5s ease;
+            cursor: pointer;
+            margin: 56px;
+            /* border: 4px double black; */
+            background-color: #d9e7ce52;
+        }
+        
+        .card-text {
+            grid-area: text;
+            margin: 25px;
+        }
+        
+        .card-text .date {
+            color: rgb(255, 7, 110);
+            font-size: 22px;
+        }
+        
+        .card-text p {
+            color: grey;
+            font-size: 15px;
+            font-weight: 300;
+        }
+        
+        .card-text h2 {
+            margin-top: 75px;
+            font-size: 22px;
+            color: maroon;
+        }
+        
+        .card-stats {
+            grid-area: stats;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            background: rgb(255, 7, 110);
+        }
+        
+        .card-stats .stat {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .card-stats .border {
+            border-left: 1px solid rgb(172, 26, 87);
+            border-right: 1px solid rgb(172, 26, 87);
+        }
+        
+        .card-stats .value {
+            font-size: 22px;
+            font-weight: 500;
+        }
+        
+        .card-stats .value sup {
+            font-size: 12px;
+        }
+        
+        .card-stats .type {
+            font-size: 11px;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+        
+        .card:hover {
+            transform: scale(1.15);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+        }
+        
+        .container2 {
+            display: flex;
+            margin-left: 34px;
+        }
+        
+        .fa-solid {
+            margin-top: 20px;
         }
     </style>
     {% endblock head %} {% block body %}
@@ -128,4 +221,49 @@
         </div>
     </section>
 
+    <!-- card section  -->
+    <div class="container2">
+        <div class="card">
+
+            <div class="card-text">
+
+                <h2></h2>
+
+            </div>
+
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-book-open-reader" style="font-size:60px ; color:#ceaf0a ; margin-top: 35px;"></i>
+            <div class="card-text card2">
+
+                <h2>Best Education</h2>
+
+            </div>
+
+        </div>
+        <div class="card">
+
+            <i class="fa-solid fa-bowl-food" style="font-size:60px ; color:#089558 ; margin-top: 35px;"></i>
+            <div class="card-text card2">
+
+                <h2>Quality Food</h2>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-heart-pulse" style="font-size:60px ; color:red ; margin-top: 35px;"></i>
+            <div class="card-text card4">
+
+                <h2>Good Health</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://kit.fontawesome.com/2444dfff41.js" crossorigin="anonymous"></script>
     {% endblock body %}

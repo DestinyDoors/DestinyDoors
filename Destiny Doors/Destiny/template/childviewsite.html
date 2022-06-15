@@ -68,9 +68,42 @@
         font-size: 21px;
         font-family: cursive;
     }
+    /* close button */
+    
+    .close {
+        position: absolute;
+        right: 32px;
+        top: 32px;
+        width: 32px;
+        height: 32px;
+        opacity: 1;
+    }
+    
+    .close:hover {
+        opacity: 1;
+    }
+    
+    .close:before,
+    .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #ff0000;
+    }
+    
+    .close:before {
+        transform: rotate(45deg);
+    }
+    
+    .close:after {
+        transform: rotate(-45deg);
+    }
 </style>
 {% endblock head %} {% block body %}
 
+<a href="#" class="close" onclick="history.back()"></a>
 <br><br><br><br><br><br><br><br>
 <div class="container">
 

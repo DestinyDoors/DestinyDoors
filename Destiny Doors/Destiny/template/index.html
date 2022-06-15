@@ -1,6 +1,66 @@
 {% extends 'base.html' %} {% block head %}
 <link rel="stylesheet" href="../static/index.css">
 <style>
+    body {
+        background-color: #f7f3ee;
+    }
+    /*
+heading section
+*/
+    
+    .main img {
+        height: 93vh;
+        width: 99vw;
+        z-index: 1;
+    }
+    
+    .heading {
+        width: 50vw;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+    }
+    
+    div .vertical-center {
+        position: absolute;
+        margin: 0%;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-144%);
+    }
+    
+    .heading h1 {
+        color: #111;
+        font-weight: bold;
+        letter-spacing: 21px;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        font: italic;
+        font-size: 80px;
+        padding: 25px 0px 0px 20px;
+    }
+    
+    .heading h2 {
+        color: #111;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-weight: bold;
+        letter-spacing: 10px;
+        text-align: center;
+        padding: 0 0px 30px 21px;
+        margin: 0;
+        text-transform: uppercase;
+        font: normal 100%/normal Arial, Helvetica, sans-serif;
+        font-size: 43px;
+        line-height: 1.9;
+    }
+    
+    .vertical-center hr {
+        margin: 0 50px 0 50px;
+    }
     /* loader css */
     
     .loader_main {
@@ -78,6 +138,9 @@
         </div>
 
     </section>
+
+
+
     <script>
         var loading = document.getElementById('loader')
 
