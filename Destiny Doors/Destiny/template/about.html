@@ -9,8 +9,7 @@
     />
     <style>
         body {
-            background: whitesmoke;
-            height: 100vh;
+            background: white;
         }
         
         #about-section {
@@ -18,7 +17,12 @@
             height: auto;
             display: flex;
             align-items: center;
-            padding: 80px 0px 80px 61px;
+            padding: 30px 0px 80px 61px;
+        }
+        
+        .about-left img {
+            height: 300px;
+            width: 300px;
         }
         
         .about-right {
@@ -33,19 +37,10 @@
         }
         
         .about-right h1 {
-            color: #8f1414;
-            font-size: 50px;
-            margin-bottom: 5px;
-            letter-spacing: 27px;
-            margin-bottom: 50px;
-            font-family: serif;
-        }
-        
-        .about-right p {
-            color: #2929b0;
-            font-size: 22px;
-            font-family: inherit;
-            font-weight: 900;
+            color: #0871c1;
+            font-size: 32px;
+            letter-spacing: 15px;
+            font-family: Gabriola;
         }
         
         .about-right .address {
@@ -81,12 +76,21 @@
             margin-right: 10px;
             color: #e74d06;
         }
+        /* section 2 */
+        
+        .sec-2 {
+            color: #0871c1;
+            text-align: center;
+            font-family: Gabriola;
+            letter-spacing: 15px;
+            font-size: 32px;
+        }
         /* card */
         
         .card {
             display: grid;
-            grid-template-columns: 235px;
-            grid-template-rows: 26px 107px 80px;
+            grid-template-columns: 203px;
+            grid-template-rows: 0px 80px 80px;
             grid-template-areas: "image" "text" "stats";
             border-radius: 16px;
             background: white;
@@ -97,7 +101,7 @@
             cursor: pointer;
             margin: 56px;
             /* border: 4px double black; */
-            background-color: #d9e7ce52;
+            /* background-color: #d9e7ce52;*/
         }
         
         .card-text {
@@ -116,10 +120,40 @@
             font-weight: 300;
         }
         
-        .card-text h2 {
+        .card-text1 h2 {
             margin-top: 75px;
             font-size: 22px;
-            color: maroon;
+            color: #b50a9b;
+            margin-top: 100px;
+            font-family: Lucida Handwriting;
+            font-weight: lighter;
+        }
+        
+        .card-text2 h2 {
+            margin-top: 75px;
+            font-size: 22px;
+            color: #1192a3;
+            margin-top: 100px;
+            font-family: Lucida Handwriting;
+            font-weight: lighter;
+        }
+        
+        .card-text3 h2 {
+            margin-top: 75px;
+            font-size: 22px;
+            color: #37436d;
+            margin-top: 100px;
+            font-family: Lucida Handwriting;
+            font-weight: lighter;
+        }
+        
+        .card-text4 h2 {
+            margin-top: 75px;
+            font-size: 22px;
+            color: red;
+            margin-top: 100px;
+            font-family: Lucida Handwriting;
+            font-weight: lighter;
         }
         
         .card-stats {
@@ -174,6 +208,260 @@
         .fa-solid {
             margin-top: 20px;
         }
+        
+        .hr1 {
+            width: 32vw;
+            height: 0px;
+            /* color: black; */
+            /* margin-bottom: 50px; */
+            background-color: #581024;
+            margin: 0px 0 50px 171px;
+            /* text-align: center; */
+            /* align-items: center; */
+        }
+        
+        .hr2 {
+            width: 35vw;
+            height: 0px;
+            /* color: black; */
+            /* margin-bottom: 50px; */
+            background-color: #581024;
+            margin: 0px -22px -2px 479px;
+            /* text-align: center; */
+            /* align-items: center; */
+        }
+        /* owner */
+        
+        .sec3 {
+            width: 100vw;
+            height: 80vh;
+            text-align: center;
+            /* background: red; */
+            display: flex;
+            justify-content: center;
+        }
+        
+        .mainbox {
+            display: flex;
+            background-color: #8ecaf24a;
+            height: 58vh;
+            width: 66vw;
+            margin: 65px -190px 0 0;
+        }
+        
+        .fon {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .social-links {
+            padding-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            background-color: #ffffff;
+            color: #0871c1;
+            border-radius: 50%;
+            margin: 0 2px;
+            text-align: center;
+            line-height: 32px;
+            font-size: 16px;
+            transition: all .5s ease;
+        }
+        
+        .social-links a:hover {
+            box-shadow: 0 0 10px #000;
+        }
+        
+        .sec3 img {
+            color: black;
+            width: 21vw;
+            height: 39vh;
+            margin: 61px 0px 0px -161px;
+            border: 2px double black;
+            border-radius: 19px;
+        }
+        
+        .lines {
+            color: black;
+            text-align: left;
+            margin: 10px 60px;
+        }
+        
+        .lines h1,
+        h2,
+        h3 {
+            color: #581024;
+        }
+        
+        .lines span {
+            color: #e50042c2;
+            font-family: Gabriola;
+            font-size: 30px;
+        }
+        
+        #founder {
+            color: #0871c1;
+            text-align: center;
+            font-family: Gabriola;
+            letter-spacing: 22px;
+            font-size: 32px;
+        }
+        
+        .hr3 {
+            width: 15vw;
+            height: 0px;
+            /* color: black; */
+            /* margin-bottom: 50px; */
+            background-color: #581024;
+            margin: 0px 0 0px 632px;
+            /* text-align: center; */
+            /* align-items: center; */
+        }
+        /* team */
+        
+        #team {
+            color: #0871c1;
+            text-align: center;
+            font-family: Gabriola;
+            letter-spacing: 22px;
+            font-size: 32px;
+        }
+        
+        .hr4 {
+            width: 15vw;
+            height: 0px;
+            /* color: black; */
+            /* margin-bottom: 50px; */
+            background-color: #581024;
+            margin: 0px 0 0px 462px;
+            /* text-align: center; */
+            /* align-items: center; */
+        }
+        
+        .team-section {
+            /* min-height: 79vh; */
+            width: 91vw;
+            height: 77vh;
+            align-items: center;
+            padding: 17px 15px 30px;
+            margin: 0 71px;
+        }
+        
+        .container {
+            max-width: 1170px;
+            margin: auto;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .team-section .section-title {
+            flex-basis: 100%;
+            max-width: 100%;
+            margin-bottom: 70px;
+        }
+        
+        .team-section .section-title h1 {
+            font-size: 40px;
+            text-align: center;
+            margin: 0;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        
+        .team-section .section-title p {
+            font-size: 16px;
+            text-align: center;
+            margin: 15px 0 0;
+            color: #ffffff;
+        }
+        
+        .team-section .team-items {
+            flex-basis: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .team-section .team-items .item {
+            flex-basis: calc(25% - 30px);
+            max-width: calc(25% - 30px);
+            transition: all .5s ease;
+            margin-bottom: 40px;
+        }
+        
+        .team-section .team-items .item img {
+            display: block;
+            width: 100%;
+            border-radius: 8px;
+            height: 40vh;
+        }
+        
+        .team-section .team-items .item .inner {
+            position: relative;
+            z-index: 11;
+            padding: 0 15px;
+        }
+        
+        .team-section .team-items .item .inner .info {
+            text-align: center;
+            padding: 20px 15px;
+            border-radius: 8px;
+            transition: all .5s ease;
+            margin-top: 10px;
+        }
+        
+        .team-section .team-items .item:hover .info {
+            transform: translateY(-20px);
+        }
+        
+        .team-section .team-items .item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-section .team-items .item .inner .info h5 {
+            margin: 0;
+            font-size: 21px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: #0871c1;
+        }
+        
+        .team-section .team-items .item .inner .info p {
+            font-size: 16px;
+            font-weight: 400;
+            color: #c5c5c5;
+            margin: 10px 0 0;
+        }
+        
+        .team-section .team-items .item .inner .info .social-links {
+            padding-top: 15px;
+        }
+        
+        .team-section .team-items .item .inner .info .social-links a {
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            background-color: #ffffff;
+            color: #0871c1;
+            border-radius: 50%;
+            margin: 0 2px;
+            text-align: center;
+            line-height: 32px;
+            font-size: 16px;
+            transition: all .5s ease;
+        }
+        
+        .team-section .team-items .item .inner .info .social-links a:hover {
+            box-shadow: 0 0 10px #000;
+        }
     </style>
     {% endblock head %} {% block body %}
     <section id="about-section">
@@ -185,7 +473,8 @@
         <!-- about right  -->
         <div class="about-right">
 
-            <h1>ABOUT US</h1>
+            <h1>About DESTINY DOORS</h1>
+            <hr class="hr1">
             <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint delectus dolorem aperiam cum? Nisi alias nesciunt explicabo autem ipsa maiores repellat vel. Quos corrupti excepturi quae aperiam suscipit. Aut, omnis. Lorem ipsum dolor sit amet consectetur
                 adipisicing elit. Debitis fugiat a dolorem at similique maxime dolorum dolore enim dicta voluptatibus, illum recusandae, vel optio tempore ipsum incidunt eum. Aspernatur, repellendus.
@@ -222,18 +511,21 @@
     </section>
 
     <!-- card section  -->
+    <h1 class="sec-2">DESTINY DOORS Provides</h1>
+    <hr class="hr2">
     <div class="container2">
+
         <div class="card">
             <i class="fa-solid fa-children" style="font-size:60px ; color:#b50a9b ; margin-top: 35px;"></i>
-            <div class="card-text">
-                <h2>What we give to our children</h2>
+            <div class="card-text1">
+                <h2>Friendly Environment</h2>
 
             </div>
 
         </div>
         <div class="card">
             <i class="fa-solid fa-book-open-reader" style="font-size:60px ; color:#1192a3 ; margin-top: 35px;"></i>
-            <div class="card-text card2">
+            <div class="card-text2 card2">
 
                 <h2>Best Education</h2>
 
@@ -243,7 +535,7 @@
         <div class="card">
 
             <i class="fa-solid fa-bowl-food" style="font-size:60px ; color:#37436d ; margin-top: 35px;"></i>
-            <div class="card-text card2">
+            <div class="card-text3 card2">
 
                 <h2>Quality Food</h2>
 
@@ -253,7 +545,7 @@
 
         <div class="card">
             <i class="fa-solid fa-heart-pulse" style="font-size:60px ; color:red ; margin-top: 35px;"></i>
-            <div class="card-text card4">
+            <div class="card-text4 card4">
 
                 <h2>Good Health</h2>
 
@@ -262,6 +554,106 @@
         </div>
 
     </div>
+
+    <!-- Our Team -->
+    <h1 id="founder">FOUNDER</h1>
+    <hr class="hr3">
+    <section class="sec3">
+        <div class="mainbox">
+            <div class="fon">
+                <img src="../static/manish-kumar-bg.jpeg" alt="">
+                <div class="social-links">
+                    <a href=""><span class="fa fa-facebook"></span></a>
+                    <a href=""><span class="fa fa-instagram"></span></a>
+                    <a href=""><span class="fa fa-linkedin"></span></a>
+                    <a href=""><span class="fa fa-youtube"></span></a>
+                </div>
+            </div>
+            <div class="lines"><br><br><br>
+                <h1>Name : <span>Manish Kumar</span></h1><br>
+                <h2>Designation : <span>Founder</span></h2><br>
+                <h3>Found On : <span>28/02/2017</span></h3><br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eveniet atque dolorem esse repudiandae quam ea. Ut labore praesentium ex cum deserunt, sed voluptatem recusandae itaque, consequatur minima eligendi earum.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- team -->
+
+    <section class="team-section">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h1 id="team">OUR TEAM</h1>
+                    <hr class="hr4">
+                </div>
+            </div>
+            <div class="row">
+                <div class="team-items">
+                    <div class="item">
+                        <img src="../static/mona.jpeg" alt="team" />
+                        <div class="inner">
+                            <div class="info">
+                                <h5>Monika Kumari</h5>
+                                <!--<p>Designer</p>-->
+                                <div class="social-links">
+                                    <a href=""><span class="fa fa-facebook"></span></a>
+                                    <a href=""><span class="fa fa-instagram"></span></a>
+                                    <a href=""><span class="fa fa-linkedin"></span></a>
+                                    <a href=""><span class="fa fa-youtube"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../static/naman.jpeg" alt="team" />
+                        <div class="inner">
+                            <div class="info">
+                                <h5>Naman</h5>
+
+                                <div class="social-links">
+                                    <a href=""><span class="fa fa-facebook"></span></a>
+                                    <a href=""><span class="fa fa-instagram"></span></a>
+                                    <a href=""><span class="fa fa-linkedin"></span></a>
+                                    <a href=""><span class="fa fa-youtube"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../static/keshav.jpeg" alt="team" />
+                        <div class="inner">
+                            <div class="info">
+                                <h5>Keshav Singh</h5>
+
+                                <div class="social-links">
+                                    <a href=""><span class="fa fa-facebook"></span></a>
+                                    <a href=""><span class="fa fa-instagram"></span></a>
+                                    <a href=""><span class="fa fa-linkedin"></span></a>
+                                    <a href=""><span class="fa fa-youtube"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../static/tiger.jpeg" alt="team" />
+                        <div class="inner">
+                            <div class="info">
+                                <h5>Ashis</h5>
+
+                                <div class="social-links">
+                                    <a href=""><span class="fa fa-facebook"></span></a>
+                                    <a href=""><span class="fa fa-instagram"></span></a>
+                                    <a href=""><span class="fa fa-linkedin"></span></a>
+                                    <a href=""><span class="fa fa-youtube"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <script src="https://kit.fontawesome.com/2444dfff41.js" crossorigin="anonymous"></script>

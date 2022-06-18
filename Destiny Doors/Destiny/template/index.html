@@ -1,17 +1,22 @@
 {% extends 'base.html' %} {% block head %}
 <link rel="stylesheet" href="../static/index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     body {
-        background-color: #f7f3ee;
+        background-color: white;
     }
     /*
 heading section
 */
     
     .main img {
-        height: 93vh;
-        width: 99vw;
+        height: 90vh;
+        width: 98vw;
         z-index: 1;
+        margin-left: 7px;
+        border: 2px solid black;
+        border-radius: 20px;
     }
     
     .heading {
@@ -42,6 +47,7 @@ heading section
         font: italic;
         font-size: 80px;
         padding: 25px 0px 0px 20px;
+        font-family: Lucida Handwriting;
     }
     
     .heading h2 {
@@ -56,6 +62,7 @@ heading section
         font: normal 100%/normal Arial, Helvetica, sans-serif;
         font-size: 43px;
         line-height: 1.9;
+        font-family: Lucida Handwriting;
     }
     
     .vertical-center hr {
@@ -114,6 +121,363 @@ heading section
             transform: translateX(-30px);
         }
     }
+    /* section 2 */
+    
+    .sec2 {
+        display: flex;
+    }
+    
+    .left-sec2 {
+        width: 50vw;
+        height: 50vh;
+        text-align: center;
+    }
+    
+    .left-sec2 h1 {
+        line-height: 5;
+        font-family: Ink Free;
+        font-size: 34px;
+        letter-spacing: 8px;
+        font-weight: bolder;
+        color: #f22a77;
+    }
+    
+    .left-sec2 h3 {
+        text-align: center;
+        margin: -46px 25px 0px 20px;
+    }
+    
+    .right-sec2 {
+        width: 50vw;
+        height: 50vh;
+        text-align: center;
+        line-height: 19;
+    }
+    
+    .right-sec2 button {
+        height: 50px;
+        width: 500px;
+        border: 0px;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        background-color: #e50042c2;
+        font-family: Segoe Print;
+        cursor: pointer;
+    }
+    /* section 3 */
+    
+    .sec3-heading {
+        text-align: center;
+        color: #0871c1;
+        font-family: Lucida Sans Typewriter;
+        font-weight: lighter;
+    }
+    
+    .sec3 {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .sec3 img {
+        width: 15vw;
+        height: 30vh;
+        margin: 30px 20px 10px 20px;
+    }
+    
+    .sec3 h4 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 20px;
+        font-family: Bahnschrift SemiBold;
+        color: steelblue;
+    }
+    /* section 4 */
+    
+    .sec4 {
+        width: 98vw;
+        height: 25vh;
+        background-color: #8ecaf24a;
+        margin: 0 0 10px 8px;
+        border: 0px;
+        border-radius: 15px;
+        display: flex;
+        margin-top: 40px;
+    }
+    
+    .sec4-one {
+        width: 70vw;
+    }
+    
+    .sec4-one h2 {
+        text-align: center;
+        line-height: 4;
+        font-family: Ink Free;
+        color: #f22a77;
+        font-size: 30px;
+        letter-spacing: 13px;
+    }
+    
+    .sec4-one h4 {
+        margin: -20px 25px 0px 20px;
+    }
+    
+    .sec4-two {
+        width: 30vw;
+        text-align: center;
+        line-height: 12;
+    }
+    
+    .sec4-two button {
+        height: 50px;
+        width: 200px;
+        border: 0px;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        background-color: #e50042c2;
+        font-family: Segoe Print;
+        cursor: pointer;
+    }
+    /* section 5  */
+    
+    .card-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin: 40px 0 40px 0;
+    }
+    
+    .sec5-card {
+        width: 350px;
+        text-align: center;
+        height: auto;
+        position: relative;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        padding: 20px;
+        transition: all .3s ease-in;
+    }
+    
+    .sec5-card>* {
+        padding: 10px;
+    }
+    
+    .sec5-card .sec5-card-title {
+        padding: 20px 10px 0px 10px;
+        font-size: 1.5rem;
+        color: #0871c1;
+        font-family: Gabriola;
+        font-weight: bolder;
+    }
+    
+    .sec5-card .sec5-card-text {
+        line-height: 20px;
+        font-family: Bahnschrift Light;
+    }
+    
+    .sec5-card-image img {
+        height: 200px;
+        width: 200px;
+        border: 0px;
+        border-radius: 105px;
+    }
+    
+    .sec5-card h3 {
+        color: #0871c1;
+        font-family: Gabriola;
+        font-weight: bolder;
+    }
+    /* section 6 */
+    
+    .sec6 {
+        width: 98vw;
+        height: 25vh;
+        background-color: #8ecaf24a;
+        margin: 0 0 10px 8px;
+        border: 0px;
+        border-radius: 15px;
+        /* display: flex; */
+        text-align: center;
+        line-height: 3;
+    }
+    
+    .sec6 h2 {
+        color: #e50042c2;
+        font-family: Gabriola;
+        font-size: 30px;
+        letter-spacing: 5px;
+    }
+    
+    .sec6 button {
+        height: 50px;
+        width: 200px;
+        border: 0px;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        background-color: #e50042c2;
+        font-family: cursive;
+        cursor: pointer;
+    }
+    /* testimonial */
+    
+    .sec-7 {
+        padding: 30px 0;
+        background: #fcfcfd;
+        z-index: 1;
+        width: 100%;
+    }
+    
+    .section-title {
+        float: left;
+        position: relative;
+        width: 100%;
+        padding-bottom: 40px;
+    }
+    
+    .section-title p {
+        color: #7d93b2;
+        font-size: 13px;
+        line-height: 20px;
+        max-width: 550px;
+        margin: 0 auto;
+    }
+    
+    .section-title h2 {
+        float: left;
+        width: 100%;
+        text-align: center;
+        color: #007aff;
+        font-size: 34px;
+        font-weight: 800;
+        position: relative;
+    }
+    
+    .section-separator {
+        float: left;
+        width: 100%;
+        position: relative;
+    }
+    
+    .section-separator:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        height: 3px;
+        width: 50px;
+        border-radius: 3px;
+        z-index: 2;
+        background-color: #007aff;
+        margin-left: -25px;
+    }
+    
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .testi-item {
+        transition: all .3s ease-in-out;
+        transform: scale(0.9);
+        opacity: 0.9;
+    }
+    
+    .testimonials-text {
+        padding: 75px 50px 41px 50px;
+        overflow: hidden;
+        background: #8ecaf24a;
+        border: 1ps solid #f1f1f1;
+        border-radius: 10px;
+        transition: all .3s ease-in-out;
+    }
+    
+    .testimonials-text-after {
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        position: absolute;
+        opacity: .3;
+        font-size: 35px;
+        transition: all 400ms linear;
+        bottom: 25px;
+        right: 30px;
+    }
+    
+    .testimonials-text-before {
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        position: absolute;
+        opacity: .3;
+        font-size: 35px;
+        transition: all 400ms linear;
+        margin: 0 0 0 208px;
+        top: 107px;
+        /* left: 30px;*/
+    }
+    
+    .testimonials-avatar h3 {
+        font-weight: 600;
+        color: #e50042c2;
+        font-size: 20px;
+    }
+    
+    .testimonials-avatar h4 {
+        font-weight: 400;
+        font-size: 12px;
+        padding-top: 6px;
+        color: #007aff;
+    }
+    
+    .testi-avatar {
+        /* position: absolute; */
+        left: 50%;
+        top: -30px;
+        width: 90px;
+        height: 90px;
+        margin-left: -45px;
+        z-index: 20;
+    }
+    
+    .swiper-slide {
+        flex-shrink: 0;
+        width: 87%;
+        height: 100%;
+        position: relative;
+        transition-property: transform;
+        margin: 0 0 0 105px;
+    }
+    
+    .testi-avatar img {
+        width: 227px;
+        height: 200px;
+        /* float: left; */
+        /* border-radius: 100%; */
+        border: 6px solid #fff;
+        box-shadow: 0 9px 26px rgb(58 87 135 / 10%);
+    }
+    
+    .swiper-slide-active .testimonials-text {
+        background: #fff;
+        box-shadow: 0 9px 26px rgba(58, 87, 135, 0.1);
+    }
+    
+    .testimonials-text p {
+        color: #581024;
+        font-size: 16px;
+        font-family: Georgia;
+        line-height: 24px;
+        padding: 0 0 10px 170px;
+        font-weight: 500;
+    }
 </style>{% endblock head %} {% block body %}
 
 <body onload="myFunction()">
@@ -139,6 +503,131 @@ heading section
 
     </section>
 
+    <section class="sec2">
+        <div class="left-sec2">
+            <h1>Care and support in your home</h1>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et sed itaque totam esse minus suscipit commodi debitis iste. Voluptates tenetur in ut amet laudantium sit officiis odit aut aliquid deleniti veniam nulla nihil dolor cupiditate dolorum
+                et facere, neque eos harum error omnis saepe consectetur esse enim? Veniam, ea inventore.</h3>
+        </div>
+
+        <div class="right-sec2">
+            <button>Counsult To Our Counseling Team</button>
+        </div>
+    </section>
+
+    <h1 class="sec3-heading">What’s Special about life with Destiny Doors?</h1>
+    <section class="sec3">
+        <div class="sec-3-one"><img src="../static/1-removebg-preview.png" alt="">
+            <h4>Qualified Team</h4>
+        </div>
+        <div class="sec-3-two"><img src="../static/2-removebg-preview.png" alt="">
+            <h4>05 Years of experience</h4>
+        </div>
+        <div class="sec-3-three"><img src="../static/3-removebg-preview.png" alt="">
+            <h4>Quality Health Checkup</h4>
+        </div>
+        <div class="sec-3-four"><img src="../static/4-removebg-preview.png" alt="">
+            <h4>24/7 Care</h4>
+        </div>
+    </section>
+
+    <section class="sec4">
+        <div class="sec4-one">
+            <h2>Donate For Our Child</h2>
+            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quas fugit veniam ipsam assumenda facere, laudantium voluptate ut eaque nobis non ratione vero ducimus sapiente maxime asperiores, reprehenderit esse aut minus, omnis architecto.
+                Explicabo, nulla deserunt culpa unde provident necessitatibus!</h4>
+        </div>
+
+        <div class="sec4-two">
+            <button>Donate Now</button>
+        </div>
+    </section>
+
+    <section class="sec-5">
+        <div class="card-container">
+            <div class="sec5-card">
+
+                <div class="sec5-card-image"><img src="../static/card1-removebg-preview.png" alt=""></div>
+                <div class="sec5-card-title">PROCESS</div>
+                <div class="sec5-card-text">
+                    Adoption means a legal process that allows someone to become the parent of a child, even though the parent and child are not related by blood. But in every other way, adoptive parents are the child's parents.
+                </div>
+            </div>
+            <div class="sec5-card">
+
+                <div class="sec5-card-image"><img src="../static/card2-removebg-preview.png" alt=""></div>
+                <div class="sec5-card-title">PROCEDURE</div>
+                <div class="sec5-card-text">
+                    Every resident Indian Prospective Adoptive Parent (PAP), who intends to adopt a child, shall register online in Child Adoption Resource Information and Guidance System by filling up the application form as provided in Schedule-5 and uploading the relevant
+                    documentsread . <br>
+                    <a href=" http://cara.nic.in/" target="_blank">Visite CARA</a>
+                </div>
+            </div>
+            <div class="sec5-card">
+
+                <div class="sec5-card-image"><img src="../static/card3.jpg" alt=""></div>
+                <div class="sec5-card-title">HELPLINE</div>
+                <div class="sec5-card-text">
+                    Toll free help line no. 1800-11-1311 Available between 9:00AM to 5:30PM on all working days(Mon-Fri) <br>
+                    <a href="http://cara.nic.in/contact%20us.html">CARA Contact</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="sec6">
+        <h2>Want to be a volunteer? Call us today!</h2>
+        <button>+91 7256040074</button>
+    </section>
+
+    <!-- testimonila -->
+
+    <section class="sec-7">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimonials</h2>
+                <span class="section-separator"></span>
+            </div>
+        </div>
+
+
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="testi-item">
+                    <div class="testi-avatar"><img src="../static/loly-galina-hhPl2MoMpBU-unsplash.jpg"></div>
+
+                    <div class="testimonials-text">
+                        <div class="testimonials-text-before"><i class="fa fa-quote-left"></i></div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium distinctio deserunt explicabo ab quibusdam recusandae corporis, quis, aut consectetur ex laboriosam soluta alias inventore doloremque? Odit, consequatur! Amet
+                            nulla voluptas eum aut at aperiam? Consequuntur, recusandae? Iure optio iusto accusamus..</p>
+                        <div class="testimonials-avatar">
+                            <h3>Mr & Mrs Sinha</h3>
+
+                        </div>
+                    </div>
+                    <div class="testimonials-text-after"><i class="fa fa-quote-right"></i></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testi-item">
+                        <div class="testi-avatar"><img src="../static/luemen-rutkowski-ZWbBxZ6zTwM-unsplash.jpg"></div>
+                        <div class="testimonials-text-before"><i class="fa fa-quote-left"></i></div>
+                        <div class="testimonials-text">
+
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+                                a type specimen book.</p>
+                            <div class="testimonials-avatar">
+                                <h3>Mr & Mrs Nagar</h3>
+
+                            </div>
+                        </div>
+                        <div class="testimonials-text-after"><i class="fa fa-quote-right"></i></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 
     <script>
