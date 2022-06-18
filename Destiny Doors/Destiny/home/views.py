@@ -12,6 +12,10 @@ def contact(request):
     return render(request, 'contact.html')
 def donation(request):
     return render(request, 'donation.html')
+def step(request):
+    return render(request, 'step_parents.html')
+def story(request):
+        return render(request, 'story.html')
 def child(request):
     newboarns = newboarn.objects.all()
     n = len(newboarns)
@@ -79,3 +83,4 @@ def age_16_18yr(request, myid):
     age_16_18ys = age_16_18y.objects.filter(id=myid)
     print(age_16_18ys)
     return render(request, 'age_16_18_viewsite.html', {'age_16_18y':age_16_18ys[0]})
+

@@ -1,3 +1,179 @@
-{% extends 'base.html' %} {% block body %}
-<h1>ADOPT</h1>
+{% extends 'base.html' %}{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .sec-1 {
+        display: flex;
+    }
+    
+    .left {
+        display: flex;
+        flex-direction: column;
+        width: 20vw;
+        margin-top: 5px;
+        position: sticky;
+    }
+    
+    .left a:link,
+    .left a:visited {
+        background-color: #ececec;
+        color: black;
+        padding: 9px 0px 0 0;
+        /* line-height: 1; */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        height: 54px;
+    }
+    
+    .left a:hover,
+    .left a:active {
+        background-color: #261e2408;
+        color: red;
+    }
+    
+    .navs1,
+    .navs2,
+    .navs3,
+    .navs4 {
+        height: 50px;
+        cursor: pointer;
+        color: black;
+        border: 1px solid black;
+        font-family: auto;
+        font-size: 18px;
+    }
+    
+    .right {
+        width: 80vw;
+        /*border: 1px solid black;
+        height: 90vh;
+        border-top: 0;
+        border-bottom: 0;
+        border-right: 0;*/
+    }
+    
+    #heading {
+        height: 50px;
+        width: 98%;
+        text-align: center;
+        /* background-color: #8ecaf24a; */
+        font-size: 33px;
+        margin: 5px 0 0 10px;
+        /* line-height: 1; */
+        background-color: #0871c1;
+        color: #fff;
+        padding-top: 3px;
+    }
+    
+    #heading2 {
+        color: #0871c1;
+        width: 41vw;
+        font-family: auto;
+        letter-spacing: 2px;
+        margin: 42px 0 0 20px;
+        border-bottom: 2px dotted black;
+    }
+    
+    .right .details {
+        margin: 0 60px 0 30px;
+        font-size: 18px;
+    }
+    
+    .inside {
+        margin: 0 60px 0 60px;
+        font-size: 18px;
+    }
+    
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 74vw;
+        margin: 0 0 20px 25px;
+    }
+    
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+{% endblock head %} {% block body %}
+<section class="sec-1">
+    <div class="left">
+        <a href="/adopt" class="navs1">Eligibility Criteria</a>
+        <a href="../static/guidlines.pdf" class="navs2">Guidlines For Adoptation</a>
+        <a href="../static/documents required.pdf" target="_blank" class="navs3">Documents Required</a>
+        <a href="../static/stats.pdf" target="_blank" class="navs4">Adoption Statistics</a>
+        <a href="../static/CARA-Annual-Report_2020-2021_Complete.pdf" target="_blank" class="navs4">Annual Report</a>
+        <a href="../static/incountry.pdf" target="_blank" class="navs4">Adoption Procedure for Incountry Relative Adoption</a>
+        <a href="../static/intercountry.pdf" target="_blank" class="navs4">Adoption Procedure for Intercountry Relative Adoption</a>
+        <a href="../static/step.pdf" target="_blank" class="navs4">Adoption Procedure for Step Parents</a>
+
+        <a href="../static/Regulation_Hindi.pdf" target="_blank" class="navs4">Adoption Regulation 2017 Hindi Version</a>
+        <a href="../static/Regulation_english.pdf" target="_blank" class="navs4">Adoption Regulation 2017 English Version</a>
+        <a href="../static/Bench Book For Adoptions.pdf" target="_blank" class="navs4">Bench Book For Adoptions</a>
+        <a href="/story" class="navs4">Seccess Story</a>
+    </div>
+    <div class="right">
+        <h1 id="heading">Destiny Doors Information and Guidance System</h1>
+        <h2 id="heading2">Eligibility criteria for prospective adoptive parents</h2>
+        <br><br>
+        <p class="details"> <span><i class="fa fa-hand-o-right" style="font-size:20px;color:red"></i></span> The prospective adoptive parents shall be physically, mentally and emotionally stable, financially capable and shall not have any life threatening medical condition.
+        </p>
+        <br><br>
+        <p class="details"> <span><i class="fa fa-hand-o-right" style="font-size:20px;color:red"></i></span> Any prospective adoptive parents, irrespective of his marital status and whether or not he has biological son or daughter, can adopt a child subject to following,
+            namely:-
+        </p>
+        <br><br>
+        <p class=" inside"> <span><i class="fa fa-thumbs-o-up" style="font-size:20px"></i></span> the consent of both the spouses for the adoption shall be required, in case of a married couple;</p>
+        <br><br>
+        <p class=" inside"> <span><i class="fa fa-thumbs-o-up" style="font-size:20px"></i></span> a single female can adopt a child of any gender;</p>
+        <br><br>
+        <p class=" inside"> <span><i class="fa fa-thumbs-o-up" style="font-size:20px"></i></span> a single male shall not be eligible to adopt a girl child; No child shall be given in adoption to a couple unless they have at least two years of stable marital relationship.</p>
+        <br><br>
+        <p class="details"> <span><i class="fa fa-hand-o-right" style="font-size:20px;color:red"></i></span> The age of prospective adoptive parents, as on the date of registration, shall be counted for deciding the eligibility and the eligibility of prospective adoptive
+            parents to apply for children of different age groups shall be as under:-</p>
+
+        <br><br>
+        <table>
+            <tr>
+                <th>
+                    Age of the child</th>
+                <th>Maximum composite age of prospective adoptive parents (couple)</th>
+                <th>Maximum age of single prospective adoptive parent</th>
+            </tr>
+            <tr>
+                <td>Upto 4 years</td>
+                <td>90 years</td>
+                <td>45 years</td>
+            </tr>
+            <tr>
+                <td>Above 4 and upto 8 years</td>
+                <td>100 years</td>
+                <td>50 years</td>
+            </tr>
+            <tr>
+                <td>Above 8 and upto 18 years</td>
+                <td>110 years</td>
+                <td>55 years</td>
+            </tr>
+        </table>
+        <br>
+        <p class="details"> <span><i class="fa fa-hand-o-right" style="font-size:20px;color:red"></i></span>In case of couple, the composite age of the prospective adoptive parents shall be counted.</p>
+        <br><br>
+        <p class="details"> <span><i class="fa fa-hand-o-right" style="font-size:20px;color:red"></i></span>The minimum age difference between the child and either of the prospective adoptive parents shall not be less than twenty-five years.</p>
+        <br><br>
+        <p class="details"> <span><i class="fa fa-hand-o-right" style="font-size:20px;color:red"></i></span>The age criteria for prospective adoptive parents shall not be applicable in case of relative adoptions and adoption by step-parent.</p>
+        <br><br>
+        <p class="details"> <span><i class="fa fa-hand-o-right" style="font-size:20px;color:red"></i></span>Couples with three or more children shall not be considered for adoption except in case of special need children as defined in sub-regulation (21) of regulation 2,
+            hard to place children as mentioned in regulation 50 and in case of relative adoption and adoption by step-parent.</p>
+        <br><br>
+    </div>
+
+</section>
 {% endblock body %}

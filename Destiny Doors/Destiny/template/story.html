@@ -1,0 +1,123 @@
+{% extends 'base.html' %}{% block head %}
+<style>
+    .sec-1 {
+        display: flex;
+    }
+    
+    .left {
+        display: flex;
+        flex-direction: column;
+        width: 20vw;
+        margin-top: 5px;
+    }
+    
+    .left a:link,
+    .left a:visited {
+        background-color: #ececec;
+        color: black;
+        padding: 9px 0px 0 0;
+        /* line-height: 1; */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        height: 54px;
+    }
+    
+    .left a:hover,
+    .left a:active {
+        background-color: #261e2408;
+        color: red;
+    }
+    
+    .navs1,
+    .navs2,
+    .navs3,
+    .navs4 {
+        height: 50px;
+        cursor: pointer;
+        color: black;
+        border: 1px solid black;
+        font-family: auto;
+        font-size: 18px;
+    }
+    
+    .right {
+        width: 80vw;
+        /*border: 1px solid black;
+        height: 90vh;
+        border-top: 0;
+        border-bottom: 0;
+        border-right: 0;*/
+    }
+    
+    #heading {
+        height: 50px;
+        width: 98%;
+        text-align: center;
+        /* background-color: #8ecaf24a; */
+        font-size: 33px;
+        margin: 5px 0 0 10px;
+        /* line-height: 1; */
+        background-color: #0871c1;
+        color: #fff;
+        padding-top: 3px;
+    }
+    
+    #heading2 {
+        color: #0871c1;
+        width: 12vw;
+        font-family: auto;
+        letter-spacing: 2px;
+        margin: 42px 0 0 20px;
+        border-bottom: 2px dotted black;
+    }
+    
+    .right h3 {
+        margin: 0 60px 0 20px;
+    }
+    
+    .right p {
+        margin: 0 60px 0 20px;
+    }
+</style>
+{% endblock head %} {% block body %}
+<section class="sec-1">
+    <div class="left">
+        <a href="/adopt" class="navs1">Eligibility Criteria</a>
+        <a href="../static/guidlines.pdf" class="navs2">Guidlines For Adoptation</a>
+        <a href="../static/documents required.pdf" target="_blank" class="navs3">Documents Required</a>
+        <a href="../static/stats.pdf" target="_blank" class="navs4">Adoption Statistics</a>
+        <a href="../static/CARA-Annual-Report_2020-2021_Complete.pdf" target="_blank" class="navs4">Annual Report</a>
+        <a href="../static/incountry.pdf" target="_blank" class="navs4">Adoption Procedure for Incountry Relative Adoption</a>
+        <a href="../static/intercountry.pdf" target="_blank" class="navs4">Adoption Procedure for Intercountry Relative Adoption</a>
+        <a href="../static/step.pdf" target="_blank" class="navs4">Adoption Procedure for Step Parents</a>
+
+        <a href="../static/Regulation_Hindi.pdf" target="_blank" class="navs4">Adoption Regulation 2017 Hindi Version</a>
+        <a href="../static/Regulation_english.pdf" target="_blank" class="navs4">Adoption Regulation 2017 English Version</a>
+        <a href="../static/Bench Book For Adoptions.pdf" target="_blank" class="navs4">Bench Book For Adoptions</a>
+        <a href="/story" class="navs4">Seccess Story</a>
+    </div>
+    <div class="right">
+        <h1 id="heading">Destiny Doors Information and Guidance System</h1>
+        <h2 id="heading2">Success Stories</h2>
+        <br>
+        <hr><br>
+        <h3>
+            Ambhrini, Bharath and Mandakini</h3>
+        <br><br>
+        <p>It was first week of January 2012. Baby looked at my wife with a deep sharp look without much blinking. She kept on looking. Tears of joy filled our eyes. That look changed our lives forever. She was all but four plus month’s baby, wrapped from
+            head to toe, brought in front of us by a social worker at adoption agency. First look at the baby gave us all the happiness we ever longed for. Today she is growing with us as our proud daughter Ambhrini. We wish for nothing more in this life,
+            from God. With the blessings of elders we got married in June 2002. Both of us are from middle class south Indian families. As it would be, we were a happily married couple. After few years of marriage, when my wife did not conceive, we consulted
+            few fertility experts in Bangalore. We spent a fortune on procedures, which resulted in nothing but pain, suffering, huge body changes due to artificial injections of hormones and financial loss. Then we decided enough is enough. We thought
+            why we don’t adopt a baby. Discussions with our elders, family and friends gave us lot of support. We registered for adoption with an agency in Bangalore. We were very anxious as there was none to match with us. However, during one of the
+            visits to other agency, we were suggested to look for availability of baby from other agencies. When we contacted another agency, we got positive vibes as the Authorities asked us to send a whole bunch of documents. Within next few months
+            we got the information that legally free baby was available for adoption. Our Home Study was done by a Bangalore based agency. On completing the documentation part, we were asked to come and visit agency to look at the baby. We reached there
+            in first week of 2012 and the team was very supportive and helped us to go through Medical Examination, Court filings and rest of the formalities. In third week of January, we were given our dream, our baby on foster care and we travelled
+            back to Bangalore with all the happiness in the world. In April 2012, we again traveled to complete adoption registration. On the whole our experience in adopting a baby has been extremely good. Ambhrini is a very intelligent, emotional and
+            wonderful baby. She is very quick to learn and very playful twenty four hours a day. Right now we are living in heaven, on this earth along with our baby. We sincerely thank the agency and its entire team from the bottom of our hearts for
+            giving us a purpose to live.</p>
+        <br>
+        <hr><br><br>
+    </div>
+</section>
+{% endblock body %}
