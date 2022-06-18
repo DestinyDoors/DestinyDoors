@@ -1,6 +1,100 @@
-{% extends 'base.html' %} {% block body %}
+{% extends 'base.html' %}{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+/>
+<style>
+    .sec3 {
+        width: 100vw;
+        height: 80vh;
+        text-align: center;
+        /* background: red; */
+        display: flex;
+        justify-content: center;
+    }
+    
+    .mainbox {
+        display: flex;
+        background-color: #8ecaf24a;
+        height: 81vh;
+        width: 66vw;
+        margin: 47px -190px 0 0;
+    }
+    
+    .fon {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .social-links {
+        padding-top: 15px;
+    }
+    
+    .social-links a {
+        display: inline-block;
+        height: 32px;
+        width: 32px;
+        background-color: #ffffff;
+        color: #0871c1;
+        border-radius: 50%;
+        margin: 0 2px;
+        text-align: center;
+        line-height: 32px;
+        font-size: 16px;
+        transition: all .5s ease;
+    }
+    
+    .social-links a:hover {
+        box-shadow: 0 0 10px #000;
+    }
+    
+    .sec3 .address {
+        background-color: #e50042c2;
+        color: black;
+        width: 20vw;
+        height: 60vh;
+        margin: 47px 0px 0px -196px;
+        border: 2px double black;
+        border-radius: 19px;
+    }
+    
+    .lines {
+        color: black;
+        text-align: left;
+        margin: 10px 60px;
+    }
+    
+    .lines h1,
+    h2,
+    h3 {
+        color: #581024;
+    }
+    
+    .lines span {
+        color: #e50042c2;
+        font-family: Gabriola;
+        font-size: 30px;
+    }
+</style>
+{% endblock head %}{% block body %}
+<section class="sec3">
+    <div class="mainbox">
+        <div class="fon">
+            <div class="address"></div>
+            <div class="social-links">
+                <a href=""><span class="fa fa-facebook"></span></a>
+                <a href=""><span class="fa fa-instagram"></span></a>
+                <a href=""><span class="fa fa-linkedin"></span></a>
+                <a href=""><span class="fa fa-youtube"></span></a>
+            </div>
+        </div>
+        <div class="lines"><br><br><br>
+            <h1>Name : <span>Manish Kumar</span></h1><br>
+            <h2>Designation : <span>Founder</span></h2><br>
+            <h3>Found On : <span>28/02/2017</span></h3><br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eveniet atque dolorem esse repudiandae quam ea. Ut labore praesentium ex cum deserunt, sed voluptatem recusandae itaque, consequatur minima eligendi earum.</p>
+        </div>
+    </div>
+</section>
 
-<h1>Contact me on given number</h1>
 
-
+<script src="https://kit.fontawesome.com/2444dfff41.js" crossorigin="anonymous"></script>
 {% endblock body %}
