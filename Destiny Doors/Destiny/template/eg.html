@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block head %}
+<link rel="stylesheet" href="../static/donation.css">
+<style>
+    .whole {
+        display: flex;
+    }
+    
+    .cont {
+        overflow: hidden;
+        position: relative;
+        width: 900px;
+        height: 550px;
+        background: #d2d2d2;
+        margin: 50px 106px;
+        border-radius: 30px;
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    }
+</style>
+{% endblock head %} {% block body %}
+<div class="whole">
+
+    <div class="cont">
+
+        <div class="form sign-in">
+            <h2>Sign In</h2>
+            <label>
+        <span>Email Address</span>
+        <input type="email" name="email">
+      </label>
+            <label>
+        <span>Password</span>
+        <input type="password" name="password">
+      </label>
+            <button class="submit" type="button">Sign In</button>
+            <p class="forgot-pass">Forgot Password ?</p>
+
+
+        </div>
+
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img-text m-up">
+                    <h2>New here?</h2>
+                    <p>Donate Anything you wish
+                        <br> childern needs people like you
+                    </p>
+                </div>
+                <div class="img-text m-in">
+                    <h2>One of us?</h2>
+                    <p>Thank you for your past donations, Good to see you!</p>
+                </div>
+                <div class="img-btn">
+                    <span class="m-up">Sign Up</span>
+                    <span class="m-in">Sign In</span>
+                </div>
+            </div>
+            <div class="form sign-up">
+                <h2>Sign Up</h2>
+                <label>
+          <span>Name</span>
+          <input type="text">
+        </label>
+                <label>
+          <span>Email</span>
+          <input type="email">
+        </label>
+                <label>
+          <span>Password</span>
+          <input type="password">
+        </label>
+                <label>
+          <span>Confirm Password</span>
+          <input type="password">
+        </label>
+                <button type="button" class="submit">Sign Up Now</button>
+            </div>
+        </div>
+    </div>
+    <img src="../static/donate-to-orphans-share-to-children-care-vector-32811885-removebg-preview.png" alt="">
+</div>
+{% endblock body %}

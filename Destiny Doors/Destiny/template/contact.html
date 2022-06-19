@@ -2,6 +2,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
 />
 <style>
+    body {
+        background: linear-gradient(11deg, #0d112f, #6a23b6, #454c95, #240f45);
+        height: 100vh;
+    }
+    
     .sec3 {
         width: 100vw;
         height: 80vh;
@@ -13,8 +18,8 @@
     
     .mainbox {
         display: flex;
-        background-color: #8ecaf24a;
-        height: 81vh;
+        background-color: #ece9ee;
+        height: 84vh;
         width: 66vw;
         margin: 47px -190px 0 0;
     }
@@ -47,13 +52,30 @@
     }
     
     .sec3 .address {
-        background-color: #e50042c2;
-        color: black;
+        background-color: #080858;
+        color: white;
+        font-size: 17px;
         width: 20vw;
-        height: 60vh;
+        height: 66vh;
         margin: 47px 0px 0px -196px;
-        border: 2px double black;
-        border-radius: 19px;
+        /* border: 2px double black; */
+        /* border-radius: 19px; */
+        line-height: 3;
+    }
+    
+    .address h3 {
+        color: white;
+        font-size: 25px;
+        font-family: auto;
+    }
+    
+    .address i {
+        color: red;
+    }
+    
+    .address a {
+        text-decoration: none;
+        color: white;
     }
     
     .lines {
@@ -65,20 +87,75 @@
     .lines h1,
     h2,
     h3 {
-        color: #581024;
+        margin: 10px 0 10px 0;
+        font-family: 'Font Awesome 6 Brands';
+        letter-spacing: 8px;
+        color: #e50042c2;
     }
     
     .lines span {
-        color: #e50042c2;
-        font-family: Gabriola;
-        font-size: 30px;
+        color: black;
+        font-family: auto;
+        font-size: 19px;
+    }
+    
+    #first,
+    #email {
+        margin: 0 40px 0 0px;
+    }
+    
+    #first,
+    #last,
+    #email,
+    #phone {
+        border: none;
+        outline: none;
+        background-color: #ece9ee;
+        font-size: 18px;
+        border-bottom: 2px solid black;
+    }
+    
+    textarea {
+        background-color: #ece9ee;
+        font-size: 15px;
+        padding: 20px;
+    }
+    
+    button {
+        color: white;
+        margin: 30px 0 0 660px;
+        padding: 8px 15px;
+        border: 2px solid black;
+        border-radius: 30px;
+        background-color: #080858;
+        cursor: pointer;
+    }
+    
+    footer {
+        display: none;
     }
 </style>
 {% endblock head %}{% block body %}
 <section class="sec3">
     <div class="mainbox">
         <div class="fon">
-            <div class="address"></div>
+            <div class="address">
+
+                <h3>CONTACT INFO</h3>
+
+                <i class="fa fa-map-marker" aria-hidden="true"></i><i class="fa fa-street-view" aria-hidden="true"></i>
+
+                <p>Chasma Center Gali Kurji More , Patna - 800013</p>
+
+                <i class="fa fa-envelope-o" aria-hidden="true"></i><span>   </span><i class="fa fa-reply-all" aria-hidden="true"></i>
+                <br>
+
+                <a href="mailto:destinydoors2@gmail.com" target="_top">destinydoors2@gmail.com</a>
+                <br>
+                <i class="fa fa-mobile" aria-hidden="true"></i><span>   </span><i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                <br>
+                <a href="tel:7256040074">7256040074</a>
+            </div>
             <div class="social-links">
                 <a href=""><span class="fa fa-facebook"></span></a>
                 <a href=""><span class="fa fa-instagram"></span></a>
@@ -86,15 +163,129 @@
                 <a href=""><span class="fa fa-youtube"></span></a>
             </div>
         </div>
-        <div class="lines"><br><br><br>
-            <h1>Name : <span>Manish Kumar</span></h1><br>
-            <h2>Designation : <span>Founder</span></h2><br>
-            <h3>Found On : <span>28/02/2017</span></h3><br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eveniet atque dolorem esse repudiandae quam ea. Ut labore praesentium ex cum deserunt, sed voluptatem recusandae itaque, consequatur minima eligendi earum.</p>
+        <div class="lines">
+            <h2>Send Message</h2>
+            <form class="form" id="form" onsubmit="return validation()" method="POST" action="contact">
+                {% csrf_token %}<br><br>
+                <span>First Name    :   </span><input type="text" id="first" name="first"><span></span>
+                <span id="firsterror" style="color:red;" class="errorl"></span>
+                <br><br><br>
+                <span>Last Name     :   </span><input type="text" id="last" name="last"><span></span><span id="lasterror" style="color:red;" class="errorl"></span><br><br><br>
+                <span>Email    Id      :   </span><input type="text" id="email" name="email"><span></span><span id="emailerror" class="errorl" style="color:red;"></span><br><br><br>
+                <span>Phone No  :   </span><input type="number" id="phone" name="phone"><span></span> <span id="phoneerror" class="errorl" style="color:red;"></span><br><br><br>
+                <span>Message       :   </span><br><br><br><textarea name="message" id="message" cols="80" rows="4" placeholder="write your message here"></textarea><span id="Etext"></span>
+                <span id="addresserror" class="errorl" style="color:red;"></span><br>
+                <button id="btn">Submit</button>
+            </form>
         </div>
     </div>
 </section>
 
 
 <script src="https://kit.fontawesome.com/2444dfff41.js" crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    function validation() {
+        var name = document.getElementById("first").value;
+        var namecheck = /^[A-Za-z. ]{3,30}$/;
+
+        if (namecheck.test(name)) {
+            document.getElementById('firsterror').innerHTML = "";
+            document.getElementById('first').style.borderColor = "blue";
+        } else {
+            document.getElementById('firsterror').innerHTML = " **please enter First Name**";
+            document.getElementById('first').style.borderColor = "red";
+            return false;
+        }
+
+
+        var name = document.getElementById("last").value;
+        var namecheck = /^[A-Za-z. ]{3,30}$/;
+
+        if (namecheck.test(name)) {
+            document.getElementById('lasterror').innerHTML = " ";
+            document.getElementById('last').style.borderColor = "blue";
+        } else {
+            document.getElementById('lasterror').innerHTML = " **please enter Last Name**";
+            document.getElementById('last').style.borderColor = "red";
+            return false;
+        }
+
+        var email = document.getElementById("email").value;
+        var emailcheck = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (emailcheck.test(email)) {
+            document.getElementById('emailerror').innerHTML = " ";
+            document.getElementById('email').style.borderColor = "blue";
+        } else {
+            document.getElementById('emailerror').innerHTML = " **please enter valid email Id**";
+            document.getElementById('email').style.borderColor = "red";
+            return false;
+        }
+
+        var phone = document.getElementById("phone").value;
+        var phonecheck = /^[0-9]{10}$/;
+
+        if (phonecheck.test(phone)) {
+            document.getElementById('phoneerror').innerHTML = " ";
+            document.getElementById('phone').style.borderColor = "blue";
+        } else {
+            document.getElementById('phoneerror').innerHTML = " **please enter valid phone**";
+            document.getElementById('phone').style.borderColor = "red";
+            return false;
+        }
+
+        var message = document.getElementById("message").value;
+        var messagecheck = /^([\w\W ]{1,100})$/;
+        if (messagecheck.test(message)) {
+            document.getElementById('messageerror').innerHTML = " ";
+            document.getElementById('message').style.borderColor = "blue";
+        } else {
+            document.getElementById('messageerror').innerHTML = " **please enter Message**";
+            document.getElementById('message').style.borderColor = "red";
+            return false;
+        }
+        alert('Details are Valid Press OK to submit form')
+        swal({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success",
+            button: "Aww yiss!",
+        });
+
+    }
+</script>
+<!--
+<script>
+    var btn = document.getElementById('btn');
+    btn.addEventListener('click', function(e) {
+        e.preventDefault()
+
+        var first = document.getElementById('first').value;
+        var last = document.getElementById('last').value;
+        var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone').value;
+        var message = document.getElementById('message').value;
+        var body = 'Name : ' + first + last + '<br/> Email : ' + email + '<br/> Phone : ' + phone + '<br/> Message : ' + message;
+
+        Email.send({
+            Host: "smtp.gmail.com",
+            Username: "destinydoors2@gmail.com",
+            Password: "nskbnwnrqcuzmksx",
+            To: 'destinydoors2@gmail.com',
+            From: email,
+            Subject: "Enquiry",
+            Body: body
+        }).then(
+            message => alert(message)
+        );
+
+
+
+
+
+    })
+</script>-->
 {% endblock body %}

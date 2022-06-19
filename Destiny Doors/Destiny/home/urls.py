@@ -9,6 +9,7 @@ urlpatterns = [
     path('contact', views.contact, name='contact'),
     path('child', views.child, name='child'),    
     path('donation', views.donation, name='donation'),
+    path('donation2', views.donation2, name='donation2'),
     path('child_data/<int:myid>', views.child_data, name='child_data'),
     path('age_3_5yr/<int:myid>', views.age_3_5yr, name='age_3_5yr'),
     path('age_6_10yr/<int:myid>', views.age_6_10yr, name='age_6_10yr'),

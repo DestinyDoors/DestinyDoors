@@ -6,7 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destiny Doors</title>
-    <link rel="stylesheet" href="../static/base.css"> {% block head %} {% endblock head %}
+    <link rel="stylesheet" href="../static/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />{% block head %} {% endblock head %}
+    <style>
+        footer {
+            height: 25vh;
+            width: 100%;
+            text-align: center;
+            background-color: #f3f3f3bd;
+            line-height: 2;
+        }
+        
+        .fh1 {
+            color: white;
+            font-size: 35px;
+            font-family: auto;
+            color: #007aff;
+            font-family: Gabriola;
+            /* background-color: #8ecaf24a;*/
+        }
+        
+        .fh3 {
+            color: black;
+            font-size: 14px;
+            font-family: auto;
+        }
+        
+        .social-linksbase {
+            padding-top: 15px;
+        }
+        
+        .social-linksbase a {
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            background-color: #ffffff;
+            color: #0871c1;
+            border-radius: 50%;
+            margin: 0 2px;
+            text-align: center;
+            line-height: 32px;
+            font-size: 16px;
+            transition: all .5s ease;
+        }
+        
+        .social-linksbase a:hover {
+            box-shadow: 0 0 10px #000;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,15 +73,29 @@
         </div>
     </nav>
     {% block body %} {% endblock body %}
-</body>
 
-<script src="../static/index.js">
-</script>
+    <footer>
+        <h1 class="fh1">Destiny Doors</h1>
+        <h3 class="fh3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam cumque quis repellendus similique velit, nam praesentium at nihil doloribus sapiente libero iure perferendis natus assumenda itaque eaque, adipisci voluptatibus beatae.</h3>
+        <div class="social-linksbase">
+            <a href=""><span class="fa fa-facebook"></span></a>
+            <a href=""><span class="fa fa-instagram"></span></a>
+            <a href=""><span class="fa fa-linkedin"></span></a>
+            <a href=""><span class="fa fa-youtube"></span></a>
+        </div>
+    </footer>
 
+
+
+    <script src="https://kit.fontawesome.com/2444dfff41.js" crossorigin="anonymous"></script>
+    </script>
+    <!--
 <script>
     document.querySelector('.img-btn').addEventListener('click', function() {
         document.querySelector('.cont').classList.toggle('s-signup')
     });
 </script>
+-->
+</body>
 
 </html>

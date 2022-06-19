@@ -1,85 +1,224 @@
-{% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-
-{% block head %}
-<link rel="stylesheet" href="../static/donation.css">
+{% extends 'base.html' %} {% block head %}
 <style>
-    .whole {
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+    .container {
         display: flex;
+        justify-content: end;
+        align-items: center;
+        padding: 25px;
+        min-height: 100vh;
+        background-color: aliceblue;
     }
     
-    .cont {
-        overflow: hidden;
-        position: relative;
-        width: 900px;
-        height: 550px;
-        background: #d2d2d2;
-        margin: 50px 106px;
-        border-radius: 30px;
-        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    .container form {
+        padding: 20px;
+        width: 700px;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
     }
-</style>
-{% endblock head %} {% block body %}
-<div class="whole">
+    
+    .container form .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .container form .row .col {
+        flex: 1 1 250px;
+    }
+    
+    .container form .row .col .title {
+        font-size: 20px;
+        color: #333;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+    }
+    
+    .container form .row .col .inputBox {
+        margin: 15px 0;
+    }
+    
+    .container form .row .col .inputBox span {
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    .container form .row .col .inputBox input {
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        font-size: 15px;
+        text-transform: none;
+    }
+    
+    .container form .row .col .inputBox input:focus {
+        border: 1px solid #000;
+    }
+    
+    .container form .row .col .flex {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .container form .row .col .flex .inputBox {
+        margin-top: 5px;
+    }
+    
+    .container form .row .col .inputBox img {
+        height: 34px;
+        margin-top: 5px;
+        filter: drop-shadow(0 0 1px #000);
+    }
+    
+    .container form .submit-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 17px;
+        background: #27ae60;
+        color: #fff;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    
+    .container form .submit-btn:hover {
+        background: #2ecc71;
+    }
+    
+    footer {
+        display: none;
+    }
+</style>{% endblock head %} {% block body %}
 
-    <div class="cont">
+<div class="container">
 
-        <div class="form sign-in">
-            <h2>Sign In</h2>
-            <label>
-        <span>Email Address</span>
-        <input type="email" name="email">
-      </label>
-            <label>
-        <span>Password</span>
-        <input type="password" name="password">
-      </label>
-            <button class="submit" type="button">Sign In</button>
-            <p class="forgot-pass">Forgot Password ?</p>
+    <form action="donation2" class="form" id="form" onsubmit="return validation()" method="POST">
+        {% csrf_token %}
+        <div class="row">
 
+            <div class="col">
+
+                <h3 class="title">Personal Details</h3>
+
+                <div class="inputBox">
+                    <span>full name :</span>
+                    <input type="text" placeholder="john deo" id="fnm" name="name">
+                    <span id="firsterror" style="color:red;" class="errorl"></span>
+                </div>
+                <div class="inputBox">
+                    <span>email :</span>
+                    <input type="email" placeholder="example@example.com" id="email" name="email">
+                    <span id="emailerror" style="color:red;" class="errorl"></span>
+                </div>
+                <div class="inputBox">
+                    <span>phone No :</span>
+                    <input type="number" placeholder="99999999999" id="phone" name="phone">
+                    <span id="phoneerror" style="color:red;" class="errorl"></span>
+                </div>
+                <div class="inputBox">
+                    <span>city :</span>
+                    <input type="text" placeholder="mumbai" id="city" name="city">
+                    <span id="cityerror" style="color:red;" class="errorl"></span>
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>state :</span>
+                        <input type="text" placeholder="Bihar" id="state" name="state">
+                        <span id="stateerror" style="color:red;" class="errorl"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>pin code :</span>
+                        <input type="text" placeholder="123 456" id="pin" name="pin">
+                        <span id="pinerror" style="color:red;" class="errorl"></span>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="sub-cont">
-            <div class="img">
-                <div class="img-text m-up">
-                    <h2>New here?</h2>
-                    <p>Donate Anything you wish
-                        <br> childern needs people like you
-                    </p>
-                </div>
-                <div class="img-text m-in">
-                    <h2>One of us?</h2>
-                    <p>Thank you for your past donations, Good to see you!</p>
-                </div>
-                <div class="img-btn">
-                    <span class="m-up">Sign Up</span>
-                    <span class="m-in">Sign In</span>
-                </div>
-            </div>
-            <div class="form sign-up">
-                <h2>Sign Up</h2>
-                <label>
-          <span>Name</span>
-          <input type="text">
-        </label>
-                <label>
-          <span>Email</span>
-          <input type="email">
-        </label>
-                <label>
-          <span>Password</span>
-          <input type="password">
-        </label>
-                <label>
-          <span>Confirm Password</span>
-          <input type="password">
-        </label>
-                <button type="button" class="submit">Sign Up Now</button>
-            </div>
-        </div>
-    </div>
-    <img src="../static/donate-to-orphans-share-to-children-care-vector-32811885-removebg-preview.png" alt="">
+        <input type="submit" value="Pay" class="submit-btn">
+
+    </form>
+
 </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    function validation() {
+        var name = document.getElementById("fnm").value;
+        var namecheck = /^[A-Za-z. ]{3,30}$/;
+
+        if (namecheck.test(name)) {
+            document.getElementById('firsterror').innerHTML = "";
+            document.getElementById('fnm').style.borderColor = "blue";
+        } else {
+            document.getElementById('firsterror').innerHTML = " **please enter  Name**";
+            document.getElementById('fnm').style.borderColor = "red";
+            return false;
+        }
+
+        var email = document.getElementById("email").value;
+        var emailcheck = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (emailcheck.test(email)) {
+            document.getElementById('emailerror').innerHTML = " ";
+            document.getElementById('email').style.borderColor = "blue";
+        } else {
+            document.getElementById('emailerror').innerHTML = " **please enter valid email Id**";
+            document.getElementById('email').style.borderColor = "red";
+            return false;
+        }
+
+        var phone = document.getElementById("phone").value;
+        var phonecheck = /^[0-9]{10}$/;
+
+        if (phonecheck.test(phone)) {
+            document.getElementById('phoneerror').innerHTML = " ";
+            document.getElementById('phone').style.borderColor = "blue";
+        } else {
+            document.getElementById('phoneerror').innerHTML = " **please enter valid phone**";
+            document.getElementById('phone').style.borderColor = "red";
+            return false;
+        }
+
+        var city = document.getElementById("city").value;
+        var citycheck = /^([\w\W ]{3,100})$/;
+        if (citycheck.test(city)) {
+            document.getElementById('cityerror').innerHTML = " ";
+            document.getElementById('city').style.borderColor = "blue";
+        } else {
+            document.getElementById('cityerror').innerHTML = " **please enter city**";
+            document.getElementById('city').style.borderColor = "red";
+            return false;
+        }
+
+        var state = document.getElementById("state").value;
+        var statecheck = /^([\w\W ]{3,100})$/;
+        if (statecheck.test(state)) {
+            document.getElementById('stateerror').innerHTML = " ";
+            document.getElementById('state').style.borderColor = "blue";
+        } else {
+            document.getElementById('stateerror').innerHTML = " **please enter state**";
+            document.getElementById('state').style.borderColor = "red";
+            return false;
+        }
+
+        var pin = document.getElementById("pin").value;
+        var pincheck = /^[0-9]{6}$/;
+
+        if (pincheck.test(pin)) {
+            document.getElementById('pinerror').innerHTML = " ";
+            document.getElementById('pin').style.borderColor = "blue";
+        } else {
+            document.getElementById('pinerror').innerHTML = " **please enter valid pin**";
+            document.getElementById('pin').style.borderColor = "red";
+            return false;
+        }
+
+
+        alert('Details are Valid Press OK to submit form')
+        swal("Hello world!");
+    }
+</script>
+
 {% endblock body %}
