@@ -24,6 +24,19 @@ def contact(request):
         message = request.POST.get('message')
         DB=contactme(First_name=first_name,Last_name=last_name,Email_Id=email,Phone=phone,Message=message)
         DB.save()
+
+        data ={
+            'name' : first_name,
+            'email' : email,
+            'subject' : message,
+            'message' : message
+        }
+        message = '''
+        New message" {}
+
+        From: {}
+        '''.format(data['message'], data['email'], )
+        send_mail(data['subject'], message, '',['destinydoors2@gmail.com'])
         
     return render(request, 'contact.html')
 
