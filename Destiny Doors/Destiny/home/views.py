@@ -1,6 +1,7 @@
 from pyexpat.errors import messages
 from django.shortcuts import render, HttpResponse
-from .models import contactme, gateway, newboarn, age_3_5y, age_6_10y, age_11_15y, age_16_18y
+from .models import  gateway, newboarn, age_3_5y, age_6_10y, age_11_15y, age_16_18y
+#from .models import contactme
 from math import *
 from django.core.mail import send_mail
 
@@ -16,28 +17,16 @@ def about(request):
 
 
 def contact(request):
+    '''  
     if request.method=='POST':
-        first_name = request.POST.get('first')
-        last_name = request.POST.get('last')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        message = request.POST.get('message')
+        first_name = request.POST.get('entry.961833090')
+        last_name = request.POST.get('entry.766710902')
+        email = request.POST.get('entry.626623658')
+        phone = request.POST.get('entry.1165961989')
+        message = request.POST.get('entry.1239058374')
         DB=contactme(First_name=first_name,Last_name=last_name,Email_Id=email,Phone=phone,Message=message)
         DB.save()
-
-        data ={
-            'name' : first_name,
-            'email' : email,
-            'subject' : message,
-            'message' : message
-        }
-        message = '''
-        New message" {}
-
-        From: {}
-        '''.format(data['message'], data['email'], )
-        send_mail(data['subject'], message, '',['destinydoors2@gmail.com'])
-        
+        '''
     return render(request, 'contact.html')
 
 def donation(request):
@@ -149,3 +138,7 @@ def age_16_18yr(request, myid):
     age_16_18ys = age_16_18y.objects.filter(id=myid)
     print(age_16_18ys)
     return render(request, 'age_16_18_viewsite.html', {'age_16_18y': age_16_18ys[0]})
+
+
+
+

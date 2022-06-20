@@ -64,7 +64,7 @@ class age_16_18y(models.Model):
     def __str__(self):
         return self.child_name
 
-class contactme(models.Model):
+'''class contactme(models.Model):
     id = models.AutoField
     First_name = models.CharField(max_length=150)
     Last_name = models.CharField(max_length=150)
@@ -74,7 +74,7 @@ class contactme(models.Model):
 
     def __str__(self):
         return self.First_name
-
+'''
 class gateway(models.Model):
     id = models.AutoField
     Name = models.CharField(max_length=150)
