@@ -91,7 +91,7 @@
 
 <div class="container">
 
-    <form class="form" id="form" onsubmit="return validation()" method="POST">
+    <form class="form" id="form" onsubmit="return validation()" method="POST" action="/payment">
         {% csrf_token %}
         <div class="row">
 
@@ -110,13 +110,23 @@
                     <span id="cnmerror" style="color:red;" class="errorl"></span>
                 </div>
                 <div class="inputBox">
+                    <span>Email Id :</span>
+                    <input type="text" placeholder="ex@gmail.com" id="email" name="emailname">
+                    <span id="emailerror" style="color:red;" class="errorl"></span>
+                </div>
+                <div class="inputBox">
+                    <span>Phone No :</span>
+                    <input type="number" placeholder="9999999999" id="phone" name="phonename">
+                    <span id="phoneerror" style="color:red;" class="errorl"></span>
+                </div>
+                <div class="inputBox">
                     <span>credit card number :</span>
                     <input type="number" placeholder="1111-2222-3333-4444" id="cardno" name="cardno">
                     <span id="cardnoerror" style="color:red;" class="errorl"></span>
                 </div>
                 <div class="inputBox">
                     <span>exp month and year :</span>
-                    <input type="text" placeholder="january" id="expm" name="expm">
+                    <input type="text" placeholder="january/2022" id="expm" name="expm">
                     <span id="expmerror" style="color:red;" class="errorl"></span>
                 </div>
 
@@ -163,6 +173,32 @@
             document.getElementById('cnm').style.borderColor = "red";
             return false;
         }
+
+        var emailname = document.getElementById("email").value;
+        var emailnamecheck = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (emailnamecheck.test(emailname)) {
+            document.getElementById('emailerror').innerHTML = "";
+            document.getElementById('email').style.borderColor = "blue";
+        } else {
+            document.getElementById('emailerror').innerHTML = " **please enter valid email**";
+            document.getElementById('email').style.borderColor = "red";
+            return false;
+        }
+
+        var phonename = document.getElementById("phone").value;
+        var phonenamecheck = /^[0-9]{10}$/;
+
+        if (phonenamecheck.test(phonename)) {
+            document.getElementById('phoneerror').innerHTML = "";
+            document.getElementById('phone').style.borderColor = "blue";
+        } else {
+            document.getElementById('phoneerror').innerHTML = " **please enter Phone**";
+            document.getElementById('phone').style.borderColor = "red";
+            return false;
+        }
+
+
         var cardno = document.getElementById("cardno").value;
         var cardnocheck = /^[0-9]{16}$/;
 
@@ -176,7 +212,7 @@
         }
 
         var expm = document.getElementById("expm").value;
-        var expmcheck = /^[A-Za-z. ]{3,30}$/;
+        var expmcheck = /^[A-Za-z. 0-9]{3,30}$/;
 
         if (expmcheck.test(expm)) {
             document.getElementById('expmerror').innerHTML = "";

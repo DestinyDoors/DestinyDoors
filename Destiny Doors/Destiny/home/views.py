@@ -1,6 +1,8 @@
+from email import message
+from email.message import Message
 from pyexpat.errors import messages
 from django.shortcuts import render, HttpResponse
-from .models import  gateway, newboarn, age_3_5y, age_6_10y, age_11_15y, age_16_18y
+from .models import   winterdonation,sign_up,summerdonation,donateanything, moneydonate, newboarn, age_3_5y, age_6_10y, age_11_15y, age_16_18y
 #from .models import contactme
 from math import *
 from django.core.mail import send_mail
@@ -15,6 +17,50 @@ def index(request):
 def about(request):
     return render(request, 'about.html')
 
+def payment(request):
+    return render(request, 'paymentdone.html')
+
+def moneyd(request):
+
+    return render(request, 'moneyd.html')
+
+def partner(request):
+    
+    return render(request, 'partner.html')
+
+def donationdone(request):
+    
+    return render(request, 'donationdone.html')
+
+def summerd(request):
+    if request.method=='POST':
+        first_name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+
+        city = request.POST.get('city')
+        state = request.POST.get('state')
+        pin = request.POST.get('pin')
+        donatebox = request.POST.get('donatebox')
+        DS=summerdonation(Name=first_name,Email_Id=email,Phone=phone,City=city,State=state,Pin=pin,Donatebox=donatebox)
+       
+        DS.save()  
+    return render(request, 'summer_campaign.html')
+
+def winterd(request):
+    if request.method=='POST':
+        first_name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        city = request.POST.get('city')
+        state = request.POST.get('state')
+        pin = request.POST.get('pin')
+        donatebox = request.POST.get('donatebox')
+        DW=winterdonation(Name=first_name,Email_Id=email,Phone=phone,City=city,State=state,Pin=pin,Donatebox=donatebox)
+       
+        DW.save()   
+    return render(request, 'winter_campaign.html')
+
 
 def contact(request):
     '''  
@@ -28,8 +74,23 @@ def contact(request):
         DB.save()
         '''
     return render(request, 'contact.html')
-
 def donation(request):
+
+    return render(request, 'donation.html')
+
+def money_c(request):
+    if request.method=='POST':
+        first_name = request.POST.get('cardname')
+        email = request.POST.get('emailname')
+        phone = request.POST.get('phonename')
+        amount = request.POST.get('amt')
+        DBB=moneydonate(Name=first_name,Email_Id=email,Phone=phone,Amount=amount)
+        
+        DBB.save()
+        
+    return render(request, 'moneyd.html')
+    
+def one_donate(request):
     if request.method=='POST':
         first_name = request.POST.get('name')
         email = request.POST.get('email')
@@ -37,13 +98,11 @@ def donation(request):
         city = request.POST.get('city')
         state = request.POST.get('state')
         pin = request.POST.get('pin')
-        DB2=gateway(Name=first_name,Email_Id=email,Phone=phone,City=city,State=state,Pin=pin)
-        DB2.save()
-        
-    return render(request, 'donation.html')
-    
-def donation2(request):
-    return render(request, 'donation2.html')
+        donatebox = request.POST.get('donatebox')
+        D=donateanything(Name=first_name,Email_Id=email,Phone=phone,City=city,State=state,Pin=pin,Donatebox=donatebox)
+       
+        D.save()
+    return render(request, 'onedonate.html')
 
 def step(request):
     return render(request, 'step_parents.html')
@@ -140,5 +199,12 @@ def age_16_18yr(request, myid):
     return render(request, 'age_16_18_viewsite.html', {'age_16_18y': age_16_18ys[0]})
 
 
-
-
+def signup(request):
+    if request.method=='POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        password = request.POST.get('pass1')
+        password2 = request.POST.get('pass2')
+        DSU=sign_up(Name=name,Email_Id=email,Password=password,Cpassword=password2)
+        DSU.save()
+    return render(request, 'onedonate.html')

@@ -12,5 +12,8 @@ admin.site.register(age_6_10y)
 admin.site.register(age_11_15y)
 admin.site.register(age_16_18y)
 '''admin.site.register(contactme)'''
-admin.site.register(gateway)
-
+admin.site.register(winterdonation)
+admin.site.register(summerdonation)
+admin.site.register(donateanything)
+admin.site.register(sign_up)
+admin.site.register(moneydonate)

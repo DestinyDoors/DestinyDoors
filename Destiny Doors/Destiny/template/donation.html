@@ -1,224 +1,321 @@
 {% extends 'base.html' %} {% block head %}
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
-    .container {
+    /* section 2 */
+    
+    .container2 {
         display: flex;
-        justify-content: end;
-        align-items: center;
-        padding: 25px;
-        min-height: 100vh;
-        background-color: aliceblue;
     }
     
-    .container form {
-        padding: 20px;
-        width: 700px;
-        background: #fff;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
-    }
-    
-    .container form .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-    
-    .container form .row .col {
-        flex: 1 1 250px;
-    }
-    
-    .container form .row .col .title {
-        font-size: 20px;
-        color: #333;
-        padding-bottom: 5px;
+    .sec-2 {
+        color: #e50042c2;
+        text-align: center;
+        font-family: Gabriola;
+        letter-spacing: 1px;
+        font-size: 40px;
         text-transform: uppercase;
     }
     
-    .container form .row .col .inputBox {
-        margin: 15px 0;
+    .donateright {
+        width: 46vw;
+        line-height: 2;
+        padding: 0 0 0 38px;
     }
     
-    .container form .row .col .inputBox span {
-        margin-bottom: 10px;
-        display: block;
+    .donateright h1 {
+        margin: 50px 0 0 245px;
     }
     
-    .container form .row .col .inputBox input {
-        width: 100%;
-        border: 1px solid #ccc;
-        padding: 10px 15px;
-        font-size: 15px;
-        text-transform: none;
+    .donateleft {
+        width: 50vw;
     }
     
-    .container form .row .col .inputBox input:focus {
-        border: 1px solid #000;
+    .donateleft img {
+        margin: 40px 0 40px 259px;
     }
     
-    .container form .row .col .flex {
+    .fa-solid {
+        margin-top: 20px;
+    }
+    
+    .hr1 {
+        width: 32vw;
+        height: 0px;
+        /* color: black; */
+        /* margin-bottom: 50px; */
+        background-color: #581024;
+        margin: 0px 0 50px 171px;
+        /* text-align: center; */
+        /* align-items: center; */
+    }
+    
+    .hr2 {
+        width: 15vw;
+        height: 0px;
+        /* color: black; */
+        /* margin-bottom: 50px; */
+        background-color: #581024;
+        margin: 0px -22px -2px 645px;
+        /* text-align: center; */
+        /* align-items: center; */
+    }
+    /* section 3 */
+    
+    .sec-3 {
+        color: #e50042c2;
+        text-align: center;
+        font-family: Gabriola;
+        letter-spacing: 1px;
+        font-size: 40px;
+        text-transform: uppercase;
+    }
+    
+    .sec-3-ar {
         display: flex;
-        gap: 15px;
+        justify-content: center;
     }
     
-    .container form .row .col .flex .inputBox {
-        margin-top: 5px;
+    .sec-3-ar img {
+        margin: 20px 50px;
+        width: 60vw;
+        height: 50vh;
+        border: 2px solid black;
     }
     
-    .container form .row .col .inputBox img {
-        height: 34px;
-        margin-top: 5px;
-        filter: drop-shadow(0 0 1px #000);
+    .sec-4 {
+        color: #e50042c2;
+        text-align: center;
+        font-family: Gabriola;
+        letter-spacing: 1px;
+        background-color: #8ecaf24a;
+        font-size: 40px;
+        text-transform: uppercase;
     }
     
-    .container form .submit-btn {
-        width: 100%;
-        padding: 12px;
-        font-size: 17px;
-        background: #27ae60;
-        color: #fff;
-        margin-top: 5px;
+    .sec-4-ar {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        margin: 30px 0 0 0;
+    }
+    
+    .sec-4-ar button {
+        height: 40px;
+        width: 167px;
+        border: 0px;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        background-color: #e50042c2;
+        font-family: cursive;
         cursor: pointer;
     }
     
-    .container form .submit-btn:hover {
-        background: #2ecc71;
+    .sec-4-ar button a {
+        color: white;
+        font-size: 20px;
+        background-color: #e50042c2;
+        font-family: cursive;
+        text-decoration: none;
     }
     
-    footer {
-        display: none;
+    .first {
+        width: 30vw;
+    }
+    
+    .second {
+        width: 30vw;
+    }
+    
+    .thired {
+        width: 30vw;
+    }
+    
+    .first h2,
+    .second h2,
+    .thired h2 {
+        font-size: 33px;
+    }
+    /* section 5 */
+    
+    .sec-5 {
+        color: #e50042c2;
+        text-align: center;
+        font-family: Gabriola;
+        letter-spacing: 1px;
+        font-size: 40px;
+        text-transform: uppercase;
+    }
+    
+    .sec-5-ar {
+        display: flex;
+    }
+    
+    .winter {
+        width: 50vw;
+        text-align: center;
+        padding: 0 50px;
+    }
+    
+    .winter img {
+        width: 30vw;
+        height: 40vh;
+    }
+    
+    .summer {
+        width: 50vw;
+        text-align: center;
+        padding: 0 50px;
+    }
+    
+    .summer img {
+        width: 30vw;
+        height: 40vh;
+    }
+    /* buttons */
+    
+    #winterbtn,
+    #summerbtn {
+        height: 40px;
+        width: 290px;
+        border: 0px;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        background-color: #e50042c2;
+        font-family: cursive;
+        cursor: pointer;
+    }
+    
+    #winterbtn a,
+    #summerbtn a {
+        color: white;
+        font-size: 20px;
+        background-color: #e50042c2;
+        font-family: cursive;
+        text-decoration: none;
+    }
+    
+    #mbtn,
+    #abtn {
+        height: 40px;
+        width: 190px;
+        border: 0px;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        background-color: #e50042c2;
+        font-family: cursive;
+        cursor: pointer;
+        margin: 0 0px 0 81px;
+    }
+    
+    #mbtn a,
+    #abtn a {
+        color: white;
+        font-size: 20px;
+        background-color: #e50042c2;
+        font-family: cursive;
+        text-decoration: none;
     }
 </style>{% endblock head %} {% block body %}
 
-<div class="container">
+<h1 class="sec-2">Donate To Support Us</h1>
+<hr class="hr2">
+<div class="container2">
 
-    <form action="donation2" class="form" id="form" onsubmit="return validation()" method="POST">
-        {% csrf_token %}
-        <div class="row">
-
-            <div class="col">
-
-                <h3 class="title">Personal Details</h3>
-
-                <div class="inputBox">
-                    <span>full name :</span>
-                    <input type="text" placeholder="john deo" id="fnm" name="name">
-                    <span id="firsterror" style="color:red;" class="errorl"></span>
-                </div>
-                <div class="inputBox">
-                    <span>email :</span>
-                    <input type="email" placeholder="example@example.com" id="email" name="email">
-                    <span id="emailerror" style="color:red;" class="errorl"></span>
-                </div>
-                <div class="inputBox">
-                    <span>phone No :</span>
-                    <input type="number" placeholder="99999999999" id="phone" name="phone">
-                    <span id="phoneerror" style="color:red;" class="errorl"></span>
-                </div>
-                <div class="inputBox">
-                    <span>city :</span>
-                    <input type="text" placeholder="mumbai" id="city" name="city">
-                    <span id="cityerror" style="color:red;" class="errorl"></span>
-                </div>
-
-                <div class="flex">
-                    <div class="inputBox">
-                        <span>state :</span>
-                        <input type="text" placeholder="Bihar" id="state" name="state">
-                        <span id="stateerror" style="color:red;" class="errorl"></span>
-                    </div>
-                    <div class="inputBox">
-                        <span>pin code :</span>
-                        <input type="text" placeholder="123 456" id="pin" name="pin">
-                        <span id="pinerror" style="color:red;" class="errorl"></span>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <input type="submit" value="Donate Here" class="submit-btn">
-
-    </form>
-
+    <div class="donateleft">
+        <img src="../static/images (10).jpeg" alt="">
+    </div>
+    <div class="donateright">
+        <h1>Donation</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis modi, minima beatae in qui, a sapiente consectetur ab perferendis aut alias hic. Quas ullam repellat mollitia dolorem voluptas? Necessitatibus, praesentium modi in quam nisi aliquid,
+            autem placeat, doloribus laboriosam iste consectetur eum. Neque quo deleniti omnis inventore nostrum excepturi possimus?</p>
+        <br><button id="abtn"><a href="/one_donate">Donate Anything</a></button>
+        <button id="mbtn"><a href="/moneyd">Donate Money</a></button>
+    </div>
 </div>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-    function validation() {
-        var name = document.getElementById("fnm").value;
-        var namecheck = /^[A-Za-z. ]{3,30}$/;
 
-        if (namecheck.test(name)) {
-            document.getElementById('firsterror').innerHTML = "";
-            document.getElementById('fnm').style.borderColor = "blue";
-        } else {
-            document.getElementById('firsterror').innerHTML = " **please enter  Name**";
-            document.getElementById('fnm').style.borderColor = "red";
-            return false;
-        }
+<br><br><br><br>
+<h1 class="sec-3">Become a Partner</h1>
+<hr class="hr2">
+<br>
+<section class="sec-3-ar">
+    <img src="../static/partner.jpg" alt="">
 
-        var email = document.getElementById("email").value;
-        var emailcheck = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-        if (emailcheck.test(email)) {
-            document.getElementById('emailerror').innerHTML = " ";
-            document.getElementById('email').style.borderColor = "blue";
-        } else {
-            document.getElementById('emailerror').innerHTML = " **please enter valid email Id**";
-            document.getElementById('email').style.borderColor = "red";
-            return false;
-        }
-
-        var phone = document.getElementById("phone").value;
-        var phonecheck = /^[0-9]{10}$/;
-
-        if (phonecheck.test(phone)) {
-            document.getElementById('phoneerror').innerHTML = " ";
-            document.getElementById('phone').style.borderColor = "blue";
-        } else {
-            document.getElementById('phoneerror').innerHTML = " **please enter valid phone**";
-            document.getElementById('phone').style.borderColor = "red";
-            return false;
-        }
-
-        var city = document.getElementById("city").value;
-        var citycheck = /^([\w\W ]{3,100})$/;
-        if (citycheck.test(city)) {
-            document.getElementById('cityerror').innerHTML = " ";
-            document.getElementById('city').style.borderColor = "blue";
-        } else {
-            document.getElementById('cityerror').innerHTML = " **please enter city**";
-            document.getElementById('city').style.borderColor = "red";
-            return false;
-        }
-
-        var state = document.getElementById("state").value;
-        var statecheck = /^([\w\W ]{3,100})$/;
-        if (statecheck.test(state)) {
-            document.getElementById('stateerror').innerHTML = " ";
-            document.getElementById('state').style.borderColor = "blue";
-        } else {
-            document.getElementById('stateerror').innerHTML = " **please enter state**";
-            document.getElementById('state').style.borderColor = "red";
-            return false;
-        }
-
-        var pin = document.getElementById("pin").value;
-        var pincheck = /^[0-9]{6}$/;
-
-        if (pincheck.test(pin)) {
-            document.getElementById('pinerror').innerHTML = " ";
-            document.getElementById('pin').style.borderColor = "blue";
-        } else {
-            document.getElementById('pinerror').innerHTML = " **please enter valid pin**";
-            document.getElementById('pin').style.borderColor = "red";
-            return false;
-        }
+</section>
+<br><br>
+<h1 class="sec-4">“ALONE WE CAN DO SO LITTLE, TOGETHER WE CAN DO SO MUCH.”</h1>
+<br><br>
+<section class="sec-4-ar">
 
 
-        alert('Details are Valid Press OK to submit form')
-        swal("Hello world!");
-    }
-</script>
-
-{% endblock body %}
+    <div class="first">
+        <h2>Financial Partner</h2><br><br>
+        <h3>Monthly Donations Provide a Future
+        </h3><br>
+        <h4>FOR THE MOST VULNERABLE AND NEEDY CHILDREN IN THE WORLD</h4>
+        <br>
+        <p>When you give an automatic monthly donation, you are saving lives each and every day. Children’s Hope partner are able to reach the children, families and communities where the need is greatest and monthly donations allow us to be prepared with
+            supplies in the event of an emergency AND provide ongoing care to these children. With vaccines, clean water, education and health care, it’s through the generosity and commitment of sponsor/partners like you that we are able to save children’s
+            lives and give a bright hope for the future.</p><br>
+        <button><a href="/partner">Become Partner</a></button>
+    </div>
+    <div class="second">
+        <h2> Medical partner</h2>
+        <br><br>
+        <h3>Medical partners helps child
+        </h3><br>
+        <h4>To achive Good health and life</h4>
+        <br>
+        <p>Lets you be on top of our health and reduces the risk of falling ill. <br><br> 1. Diagnose a disease before it advances to a critical stage. <br><br> 2. Motivates you to lead a healthier and active lifestyle. <br><br> 3. Forming a good partnership
+            with your doctor and thus letting you get acquainted with healthier habits.
+        </p><br><button><a href="/partner">Become Partner</a></button>
+    </div>
+    <div class="thired">
+        <h2>Education Partner</h2>
+        <br><br>
+        <h3>Education Partners helps a Child
+        </h3><br>
+        <h4>To Grow and Compete With Other Childrens</h4>
+        <br>
+        <p>This quote by Swami Vivekananda very aptly enforces our responsibility toward providing education for all. All of us humans are created equal but right after birth, we are divided based on caste, religion, status and money. This, in turn, changes
+            the whole dynamics. Some get privileged and are able to access a better lifestyle while others are left scrambling for even basic survival. We, as the privileged ones, ought to have a sense of responsibility for the betterment of those less
+            fortunate.
+        </p>
+        <br><button><a href="/partner">Become Partner</a></button>
+    </div>
+</section>
+<br><br><br>
+<h1 class="sec-5">CAMPEIGN FOR ORPHANS</h1>
+<hr class="hr2"><br><br>
+<section class="sec-5-ar">
+    <div class="winter"><img src="https://images-na.ssl-images-amazon.com/images/I/61T5J8WT60L.jpg" alt="">
+        <br><br>
+        <h2>WINTER CAMPEIGN</h2><br>
+        <h3>Your donations contribute towards providing children with warm clothes, heaters.</h3>
+        <br>
+        <h4>In the past, we have executed the 'Keep Warm Campaign', </h4>
+        <br>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus adipisci ipsum, voluptates, blanditiis est numquam facere magnam optio nam deserunt explicabo temporibus nesciunt unde dolorum dicta fugit tempora! Inventore voluptates hic
+            est suscipit recusandae voluptatum, perferendis iste quaerat. Sit eos sunt tenetur, fugit reiciendis illum quisquam consequatur aliquid atque. Praesentium alias ratione facilis eius architecto quibusdam accusantium sapiente. At inventore,
+            dolore officiis totam consequuntur eos? Provident, veritatis? Eveniet, tenetur rem!</p>
+        <br><br><button id="winterbtn"><a href="/winterd">Donate In Winter Campeign</a></button>
+    </div>
+    <div class="summer"><img src="data:image/jpeg;base64,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"
+            alt=""><br>
+        <br>
+        <h2>SUMMER CAMPEIGN</h2>
+        <br>
+        <h3>Your donations contribute towards providing children with clothes, Coolers.</h3>
+        <br>
+        <h4>In the past, we have executed the 'Keep Cool Campaign', </h4>
+        <br>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus adipisci ipsum, voluptates, blanditiis est numquam facere magnam optio nam deserunt explicabo temporibus nesciunt unde dolorum dicta fugit tempora! Inventore voluptates hic
+            est suscipit recusandae voluptatum, perferendis iste quaerat. Sit eos sunt tenetur, fugit reiciendis illum quisquam consequatur aliquid atque. Praesentium alias ratione facilis eius architecto quibusdam accusantium sapiente. At inventore,
+            dolore officiis totam consequuntur eos? Provident, veritatis? Eveniet, tenetur rem!</p>
+        <br><br><button id="summerbtn"><a href="/summerd">Donate In Summer Campeign</a></button>
+    </div>
+</section>
+<br>
+</div> {% endblock body %}

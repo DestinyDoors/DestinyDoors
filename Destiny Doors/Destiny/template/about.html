@@ -109,11 +109,6 @@
             margin: 25px;
         }
         
-        .card-text .date {
-            color: rgb(255, 7, 110);
-            font-size: 22px;
-        }
-        
         .card-text p {
             color: grey;
             font-size: 15px;
@@ -154,45 +149,6 @@
             margin-top: 100px;
             font-family: Lucida Handwriting;
             font-weight: lighter;
-        }
-        
-        .card-stats {
-            grid-area: stats;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            background: rgb(255, 7, 110);
-        }
-        
-        .card-stats .stat {
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: white;
-        }
-        
-        .card-stats .border {
-            border-left: 1px solid rgb(172, 26, 87);
-            border-right: 1px solid rgb(172, 26, 87);
-        }
-        
-        .card-stats .value {
-            font-size: 22px;
-            font-weight: 500;
-        }
-        
-        .card-stats .value sup {
-            font-size: 12px;
-        }
-        
-        .card-stats .type {
-            font-size: 11px;
-            font-weight: 300;
-            text-transform: uppercase;
         }
         
         .card:hover {
@@ -462,6 +418,10 @@
         .team-section .team-items .item .inner .info .social-links a:hover {
             box-shadow: 0 0 10px #000;
         }
+        
+        #aboutp {
+            text-align: left;
+        }
     </style>
     {% endblock head %} {% block body %}
     <section id="about-section">
@@ -475,9 +435,13 @@
 
             <h1>About DESTINY DOORS</h1>
             <hr class="hr1">
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint delectus dolorem aperiam cum? Nisi alias nesciunt explicabo autem ipsa maiores repellat vel. Quos corrupti excepturi quae aperiam suscipit. Aut, omnis. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Debitis fugiat a dolorem at similique maxime dolorum dolore enim dicta voluptatibus, illum recusandae, vel optio tempore ipsum incidunt eum. Aspernatur, repellendus.
+            <p id="aboutp">
+                Being a parent is hard work, and sometimes parenting a child who has been adopted can provide unique challenges.
+                <br>We’re a group of families just like yours, working together to connect parents to great services and the professionals that are doing great work. <br>
+                <br> Our Aim is to raises awareness about the need for adoptive families for children. <br> Destiny Doors also supports families who are interested in becoming an adoptive parent for a child.
+                <br> As people inquire about their interest in adopting,<br><br> We will:
+                <br> 1) provide education about the adoption process.
+                <br> 2) answer all questions while trying to decide if adoption is their option
             </p>
             <div class="address">
                 <ul>
@@ -641,7 +605,7 @@
                         <img src="../static/tiger.jpeg" alt="team" />
                         <div class="inner">
                             <div class="info">
-                                <h5>Ashis</h5>
+                                <h5>Ashish Kumar</h5>
 
                                 <div class="social-links">
                                     <a href=""><span class="fa fa-facebook"></span></a>
