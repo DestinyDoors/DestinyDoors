@@ -1,0 +1,342 @@
+{% extends 'base.html' %} {% block head %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+    body {
+        background-color: #fff8f8;
+    }
+    /* next section */
+    
+    #winterpic {
+        width: 100vw;
+    }
+    
+    .container2 {
+        display: flex;
+        margin: 0 0 0 -23px;
+    }
+    
+    .container {
+        display: flex;
+        align-items: center;
+        padding: 25px;
+        min-height: 100vh;
+        background-color: aliceblue;
+    }
+    
+    .left {
+        width: 50vw;
+        height: auto;
+    }
+    
+    .left img {
+        width: 40vw;
+        height: 60vh;
+    }
+    
+    .right {
+        width: 30vw;
+        height: auto;
+    }
+    
+    form {
+        padding: 20px;
+        width: 700px;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+        margin: 0 0 0 400px;
+    }
+    
+    form .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    form .row .col {
+        flex: 1 1 250px;
+    }
+    
+    form .row .col .title {
+        font-size: 20px;
+        color: #333;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+    }
+    
+    form .row .col .inputBox {
+        margin: 15px 0;
+    }
+    
+    form .row .col .inputBox span {
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    form .row .col .inputBox input {
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        font-size: 15px;
+        text-transform: none;
+    }
+    
+    form .row .col .inputBox input:focus {
+        border: 1px solid #000;
+    }
+    
+    form .row .col .flex {
+        display: flex;
+        gap: 15px;
+    }
+    
+    form .row .col .flex .inputBox {
+        margin-top: 5px;
+    }
+    
+    form .row .col .inputBox img {
+        height: 34px;
+        margin-top: 5px;
+        filter: drop-shadow(0 0 1px #000);
+    }
+    
+    form .submit-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 17px;
+        background: #27ae60;
+        color: #fff;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    
+    form .submit-btn:hover {
+        background: #2ecc71;
+    }
+    
+    footer {
+        display: none;
+    }
+    
+    .sec-1-h {
+        color: #e50042c2;
+        text-align: center;
+        font-family: Gabriola;
+        letter-spacing: 1px;
+        font-size: 40px;
+        text-transform: uppercase;
+    }
+    
+    textarea {
+        padding: 20px;
+    }
+</style>{% endblock head %} {% block body %}
+
+<h1 class="sec-1-h">Fill the form below</h1>
+<form class="form" id="form" onsubmit="return  validateForm();" method="POST">
+    {% csrf_token %}
+    <div class="row">
+
+        <div class="col">
+
+            <h3 class="title">payment</h3>
+
+            <div class="inputBox">
+                <span>cards accepted :</span>
+                <img src="../static/card_img.png" alt="">
+            </div>
+
+            <div class="inputBox">
+                <span>Card Holder Name :</span>
+                <input type="text" placeholder="john deo" id="first" name="name">
+                <span id="firsterror" style="color:red;" class="errorl"></span>
+            </div>
+            <div class="inputBox">
+                <span>Email :</span>
+                <input type="email" placeholder="example@example.com" id="email" name="email">
+                <span id="emailerror" style="color:red;" class="errorl"></span>
+            </div>
+            <div class="inputBox">
+                <span>Phone No :</span>
+                <input type="number" placeholder="99999999999" id="phone" name="phone">
+                <span id="phoneerror" style="color:red;" class="errorl"></span>
+            </div>
+            <div class="inputBox">
+                <span>Card no :</span>
+                <input type="text" placeholder="*****************************" id="cardno" name="cardno">
+                <span id="cardnoerror" style="color:red;" class="errorl"></span>
+            </div>
+
+            <div class="flex">
+                <div class="inputBox">
+                    <span>Exp month & year :</span>
+                    <input type="text" placeholder="jan/2024" id="exp" name="exp">
+                    <span id="experror" style="color:red;" class="errorl"></span>
+                </div>
+                <div class="inputBox">
+                    <span>CVV :</span>
+                    <input type="text" placeholder="123" id="cvv" name="cvv">
+                    <span id="cvvrror" style="color:red;" class="errorl"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <input type="submit" value="Donate Here" class="submit-btn">
+
+</form>
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    function validateFirstName() {
+        var first = document.getElementById('first').value;
+        if (first.length == 0) {
+            document.getElementById('firsterror').innerHTML = " **Name cannot be empty **";
+            document.getElementById('first').style.borderColor = "red";
+
+            return false;
+
+        }
+        if (!first.match(/^[a-zA-Z]{3,}(?: [a-zA-Z]+){0,2}$/)) {
+            document.getElementById('firsterror').innerHTML = " **Name cannot be empty **";
+            document.getElementById('first').style.borderColor = "red";
+            return false;
+        }
+        document.getElementById('firsterror').innerHTML = "";
+        document.getElementById('first').style.borderColor = "blue";
+        return true;
+    }
+
+
+    function validateEmail() {
+
+        var email = document.getElementById('email').value;
+        if (email.length == 0) {
+            document.getElementById('emailerror').innerHTML = " **please enter valid email**";
+            document.getElementById('email').style.borderColor = "red";
+            return false;
+
+        }
+
+        if (!email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+            document.getElementById('emailerror').innerHTML = " **please enter valid email**";
+            document.getElementById('email').style.borderColor = "red";
+            return false;
+
+        }
+        document.getElementById('emailerror').innerHTML = " ";
+        document.getElementById('email').style.borderColor = "blue";
+        return true;
+
+    }
+
+    function validatePhone() {
+        var phone = document.getElementById('phone').value;
+        if (phone.length == 0) {
+            document.getElementById('phoneerror').innerHTML = " ** Phone number cannot be empty **";
+            document.getElementById('phone').style.borderColor = "red";
+            return false;
+        }
+
+        if (!phone.match(/^[0]?[789]\d{9}$/)) {
+            document.getElementById('phoneerror').innerHTML = " **please enter valid Phone number**";
+            document.getElementById('phone').style.borderColor = "red";
+            return false;
+        }
+
+        document.getElementById('phoneerror').innerHTML = " ";
+        document.getElementById('phone').style.borderColor = "blue";
+
+        return true;
+
+    }
+
+    function validatecard() {
+        var cardno = document.getElementById('cardno').value;
+        if (cardno.length == 0) {
+            document.getElementById('cardnoerror').innerHTML = " ** cardno number cannot be empty **";
+            document.getElementById('cardno').style.borderColor = "red";
+            return false;
+        }
+
+        if (!cardno.match(/^[0-9]{16}$/)) {
+            document.getElementById('cardnoerror').innerHTML = " **please enter valid cardno number**";
+            document.getElementById('cardno').style.borderColor = "red";
+            return false;
+        }
+
+        document.getElementById('cardnoerror').innerHTML = " ";
+        document.getElementById('cardno').style.borderColor = "blue";
+
+        return true;
+
+    }
+
+
+    function validateexp() {
+        var exp = document.getElementById('exp').value;
+        if (exp.length == 0) {
+            document.getElementById('experror').innerHTML = " ** exp number cannot be empty **";
+            document.getElementById('exp').style.borderColor = "red";
+            return false;
+        }
+
+        if (!exp.match(/^[a-zA-Z0-9/ ]*$/)) {
+            document.getElementById('experror').innerHTML = " **please enter valid exp number**";
+            document.getElementById('exp').style.borderColor = "red";
+            return false;
+        }
+
+        document.getElementById('experror').innerHTML = " ";
+        document.getElementById('exp').style.borderColor = "blue";
+
+        return true;
+
+    }
+
+
+
+    function validatecvv() {
+        var cvv = document.getElementById('cvv').value;
+        if (cvv.length == 0) {
+            document.getElementById('cvverror').innerHTML = " ** cvv number cannot be empty **";
+            document.getElementById('cvv').style.borderColor = "red";
+            return false;
+        }
+
+        if (!cvv.match(/^[0-9]{3}$/)) {
+            document.getElementById('cvverror').innerHTML = " **please enter valid cvv number**";
+            document.getElementById('cvv').style.borderColor = "red";
+            return false;
+        }
+
+        document.getElementById('cvverror').innerHTML = " ";
+        document.getElementById('cvv').style.borderColor = "blue";
+
+        return true;
+
+    }
+
+
+    function validateForm() {
+        if (!validateFirstName() || !validateEmail() || !validatePhone() || !validatecard() || !validateexp() || !validatecvv()) {
+
+            //Validation Message
+            return false;
+        } else {
+            submitted = true;
+            swal({
+                title: "Thank You!",
+                text: "You successfully Submited The Form!",
+                icon: "success",
+                button: "Done!",
+            });
+            return true;
+        }
+    }
+</script>
+
+{% endblock body %}

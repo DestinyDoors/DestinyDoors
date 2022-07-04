@@ -80,6 +80,11 @@ WSGI_APPLICATION = 'Destiny.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': 'django_db',
+        #'HOST': 'localhost',
+        #'USERNAME': 'root',
+        #'PASSWORD': '',
+        #'PORT': '3306',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
