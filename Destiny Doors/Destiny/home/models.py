@@ -1,4 +1,5 @@
 from tokenize import Name
+from unicodedata import category
 from unittest.util import _MAX_LENGTH
 from django import forms
 from django.db import models
@@ -127,14 +128,84 @@ class donateanything(models.Model):
     def __str__(self):
         return self.Name
 
-class partnerdnt(models.Model):
-    id = models.AutoField
-    Name = models.CharField(max_length=150)
-    Email_Id = models.EmailField(max_length=254)
+    
+class partnersignup(models.Model):
+    Name = models.CharField(max_length=80)
+    Email = models.EmailField(max_length=80)
     Phone = models.IntegerField()
-    State = models.CharField(max_length=50)
-    Pin = models.IntegerField()
-    City = models.CharField(max_length=50)
-    Donatebox = models.CharField(max_length=500)
+    Password = models.CharField(max_length=80)
     def __str__(self):
         return self.Name
+
+class adoptform(models.Model):
+    Applicant_Name = models.CharField(max_length=80)
+    Date_of_Birth = models.DateField(auto_now=False, auto_now_add=False)
+    Gender = {
+        ('male','male'),
+        ('female','female')
+    }
+    Gender=models.CharField(max_length=10,choices=Gender)
+
+    Category = {
+        ('indian','indian'),
+        ('nri','nri')
+    }
+    Category=models.CharField(max_length=10,choices=Category)
+
+    Document = {
+        ('indian','indian'),
+        ('nri','nri')
+    }
+    Document=models.CharField(max_length=10,choices=Document)
+    ID_NO = models.CharField(max_length=80)
+    Email_ID = models.CharField(max_length=80)
+    Phone = models.CharField(max_length=80)
+
+    Martital_Status = {
+        ('Single','Single'),
+        ('Divorcee','Divorcee')
+        ('Married','Married'),
+        ('Widow','Widow')
+    }
+    Martital_Status=models.CharField(max_length=10,choices=Martital_Status)
+
+    Spouse_name = models.CharField(max_length=80)
+    Spouse_DOB = models.CharField(max_length=80)
+
+
+    Spouse_Gender = {
+        ('male','male'),
+        ('female','female')
+    }
+    Spouse_Gender=models.CharField(max_length=10,choices=Spouse_Gender)
+
+    Spouse_Category = {
+        ('indian','indian'),
+        ('nri','nri')
+    }
+    Spouse_Category=models.CharField(max_length=10,choices=Spouse_Category)
+
+    Spouse_Document = {
+        ('indian','indian'),
+        ('nri','nri')
+    }
+    Spouse_Document=models.CharField(max_length=10,choices=Spouse_Document)
+    Spouse_ID_NO = models.CharField(max_length=80)
+    Spouse_Email_ID = models.CharField(max_length=80)
+    Spouse_Phone = models.CharField(max_length=80)
+
+    Biological_Childrens = models.IntegerField()
+    Adopted_childrens = models.IntegerField()
+    
+    Address = models.CharField(max_length=80)
+    District = models.CharField(max_length=80)
+    State = models.CharField(max_length=80)
+    Pin_code = models.IntegerField()
+
+    Current_Address = models.CharField(max_length=80)
+    Current_District = models.CharField(max_length=80)
+    Current_State = models.CharField(max_length=80)
+    Current_Pin_code = models.IntegerField()
+
+    
+    

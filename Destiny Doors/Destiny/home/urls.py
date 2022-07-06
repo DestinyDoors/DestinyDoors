@@ -29,5 +29,4 @@ urlpatterns = [
     path('age_16_18', views.age_16_18, name='age_16_18'),
     path('story', views.story, name='story'),
     path('step', views.step, name='step'),
-    path('partnersign', views.partnersign, name='partnersign'),
 ]

@@ -2,7 +2,7 @@ from email import message
 from email.message import Message
 from pyexpat.errors import messages
 from django.shortcuts import render, HttpResponse , redirect
-from .models import   winterdonation,donateanything,partnerdnt, givemoney, newboarn, age_3_5y, age_6_10y, age_11_15y, age_16_18y
+from .models import   partnersignup,winterdonation,donateanything, givemoney, newboarn, age_3_5y, age_6_10y, age_11_15y, age_16_18y
 #from .models import contactme
  
 from home.models import moneydonate  
@@ -26,10 +26,16 @@ def moneyd(request):
 
     return render(request, 'moneyd.html')
 
-def partner(request):
-    
-    return render(request, 'partner.html')
 
+def partner(request):
+    if request.method=='POST':
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        phone=request.POST.get('phone')
+        cpass=request.POST.get('cpass')
+        sdata=partnersignup(Name=name,Email=email,Phone=phone,Password=cpass)
+        sdata.save()
+    return render(request, 'partner.html')
 def donationdone(request):
     
     return render(request, 'donationdone.html')
@@ -113,22 +119,6 @@ def one_donate(request):
     return render(request, 'onedonate.html')
 
 
-def partnersign(request):
-    if request.method=='POST':
-        first_name = request.POST.get('name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        city = request.POST.get('city')
-        state = request.POST.get('state')
-        pin = request.POST.get('pin')
-        donatebox = request.POST.get('donatebox')
-        Dp=partnerdnt(Name=first_name,Email_Id=email,Phone=phone,City=city,State=state,Pin=pin,Donatebox=donatebox)
-        
-        Dp.save()
-    return render(request, 'partner.html')
-
-
-
 def step(request):
     return render(request, 'step_parents.html')
 
@@ -147,6 +137,8 @@ def child(request):
 
 
 def adopt(request):
+
+    
     return render(request, 'adopt.html')
 
 

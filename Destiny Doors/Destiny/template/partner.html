@@ -1,375 +1,434 @@
-{% extends 'base.html' %} {% block head %}
+ {% extends 'base.html' %} {% block head %}
+<!-- ===== Iconscout CSS ===== -->
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+<!--<title>Login & Registration Form</title>-->
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
-    /* card */
+    /* ===== Google Font Import - Poformsins ===== */
     
-    .onee {
-        display: flex;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
     }
     
-    .card {
-        display: grid;
-        grid-template-columns: 190px;
-        grid-template-rows: 0px 65px 80px;
-        grid-template-areas: "image" "text" "stats";
-        border-radius: 16px;
-        background: white;
-        /* box-shadow: 5px 5px 15px rgb(0 0 0 / 90%); */
-        font-family: roboto;
-        text-align: center;
-        transition: 0.5s ease;
-        cursor: pointer;
-        margin: 56px;
-        /* border: 4px double black; */
-        /* background-color: #d9e7ce52;*/
-    }
-    
-    .card-text {
-        grid-area: text;
-        margin: 25px;
-    }
-    
-    .card-text p {
-        color: grey;
-        font-size: 15px;
-        font-weight: 300;
-    }
-    
-    .card-text h2 {
-        margin-top: 75px;
-        font-size: 17px;
-        color: black;
-        margin-top: 75px;
-        font-family: Lucida Handwriting;
-        font-weight: lighter;
-    }
-    
-    .card:hover {
-        transform: scale(1.15);
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
-    }
-    /* next section */
-    
-    .container2 {
-        display: flex;
-        margin: 0 0 0 -23px;
+    body {
+        background-color: #4070f4;
     }
     
     .container {
+        position: relative;
+        max-width: 430px;
+        width: 100%;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin: 107px 576px;
+    }
+    
+    .container .forms {
         display: flex;
         align-items: center;
-        padding: 25px;
-        min-height: 100vh;
-        background-color: aliceblue;
+        height: 440px;
+        width: 200%;
+        transition: height 0.2s ease;
     }
     
-    .left {
-        width: 50vw;
-        height: auto;
+    .container .form {
+        width: 50%;
+        padding: 30px;
+        background-color: #fff;
+        transition: margin-left 0.18s ease;
     }
     
-    .left img {
-        width: 40vw;
-        height: 60vh;
+    .container.active .login {
+        margin-left: -50%;
+        opacity: 0;
+        transition: margin-left 0.18s ease, opacity 0.15s ease;
     }
     
-    .right {
-        width: 30vw;
-        height: auto;
+    .container .signup {
+        opacity: 0;
+        transition: opacity 0.09s ease;
     }
     
-    form {
-        padding: 20px;
-        width: 700px;
-        background: #fff;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
-        margin: 0 0 0 400px;
+    .container.active .signup {
+        opacity: 1;
+        margin-top: 39px;
+        transition: opacity 0.2s ease;
     }
     
-    form .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
+    .container.active .forms {
+        height: 620px;
     }
     
-    form .row .col {
-        flex: 1 1 250px;
+    .container .form .title {
+        position: relative;
+        font-size: 27px;
+        font-weight: 600;
     }
     
-    form .row .col .title {
-        font-size: 20px;
-        color: #333;
-        padding-bottom: 5px;
-        text-transform: uppercase;
+    .form .title::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 30px;
+        background-color: #4070f4;
+        border-radius: 25px;
     }
     
-    form .row .col .inputBox {
-        margin: 15px 0;
-    }
-    
-    form .row .col .inputBox span {
-        margin-bottom: 10px;
-        display: block;
-    }
-    
-    form .row .col .inputBox input {
+    .form .input-field {
+        position: relative;
+        height: 50px;
         width: 100%;
-        border: 1px solid #ccc;
-        padding: 10px 15px;
-        font-size: 15px;
-        text-transform: none;
+        margin-top: 30px;
     }
     
-    form .row .col .inputBox input:focus {
-        border: 1px solid #000;
-    }
-    
-    form .row .col .flex {
-        display: flex;
-        gap: 15px;
-    }
-    
-    form .row .col .flex .inputBox {
-        margin-top: 5px;
-    }
-    
-    form .row .col .inputBox img {
-        height: 34px;
-        margin-top: 5px;
-        filter: drop-shadow(0 0 1px #000);
-    }
-    
-    form .submit-btn {
+    .input-field input {
+        position: absolute;
+        height: 100%;
         width: 100%;
-        padding: 12px;
-        font-size: 17px;
-        background: #27ae60;
-        color: #fff;
-        margin-top: 5px;
+        padding: 0 35px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        border-bottom: 2px solid #ccc;
+        border-top: 2px solid transparent;
+        transition: all 0.2s ease;
+    }
+    
+    .input-field input:is(:focus,
+     :valid) {
+        border-bottom-color: #4070f4;
+    }
+    
+    .input-field i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        font-size: 23px;
+        transition: all 0.2s ease;
+    }
+    
+    .input-field input:is(:focus,
+     :valid)~i {
+        color: #4070f4;
+    }
+    
+    .input-field i.icon {
+        left: 0;
+    }
+    
+    .input-field i.showHidePw {
+        right: 0;
         cursor: pointer;
+        padding: 10px;
     }
     
-    form .submit-btn:hover {
-        background: #2ecc71;
+    .form .checkbox-text {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    
+    .checkbox-text .checkbox-content {
+        display: flex;
+        align-items: center;
+    }
+    
+    .checkbox-content input {
+        margin: 0 8px -2px 4px;
+        accent-color: #4070f4;
+    }
+    
+    .form .text {
+        color: #333;
+        font-size: 14px;
+    }
+    
+    .form a.text {
+        color: #4070f4;
+        text-decoration: none;
+    }
+    
+    .form a:hover {
+        text-decoration: underline;
+    }
+    
+    .form .button {
+        margin-top: 35px;
+    }
+    
+    .form .button input {
+        border: none;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 6px;
+        background-color: #4070f4;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .button input:hover {
+        background-color: #265df2;
+    }
+    
+    .form .login-signup {
+        margin-top: 30px;
+        text-align: center;
+    }
+    
+    input {
+        margin: 10px 0;
+        height: 35px;
+        width: 295px;
     }
     
     footer {
         display: none;
     }
     
-    .sec-1-h {
-        color: #e50042c2;
-        text-align: center;
-        font-family: Gabriola;
-        letter-spacing: 1px;
-        font-size: 40px;
-        text-transform: uppercase;
+    .row {
+        width: 200px;
     }
-    
-    textarea {
-        padding: 20px;
-    }
-</style>{% endblock head %} {% block body %}
-<h1 class="sec-1-h">Donate Any Thing You Want</h1>
-<hr class="hr2">
-<section class="onee">
-    <div class="card">
+</style> {% endblock head %} {% block body %}
+<div class="container">
+    <div class="forms">
+        <div class="form login">
+            <span class="title">Login</span>
 
-        <i class="fa-solid fa-bowl-food" style="font-size:40px ; color:#b38a05 ; margin-top: 35px;"></i>
-        <div class="card-text">
-            <h2>Donate Food</h2>
-        </div>
-
-
-    </div>
-    <div class="card">
-        <i class="fa-solid fa-shirt" style="font-size:40px ; color:#23078a ; margin-top: 35px;"></i>
-
-        <div class="card-text card2">
-
-            <h2>Donate Cloths</h2>
-
-        </div>
-
-    </div>
-    <div class="card">
-
-        <i class="fa-solid fa-car-side" style="font-size:40px ; color:#d40e78 ; margin-top: 35px;"></i>
-        <div class="card-text card2">
-
-            <h2>Donate Toy</h2>
-
-        </div>
-
-    </div>
-
-    <div class="card">
-        <i class="fa-solid fa-heart-pulse" style="font-size:40px ; color:red ; margin-top: 35px;"></i>
-        <div class="card-text card4">
-
-            <h2>Donate For Health</h2>
-
-        </div>
-
-    </div>
-
-
-    <div class="card">
-        <i class="fa-solid fa-book-open-reader" style="font-size:40px ; color:#0fbc35 ; margin-top: 35px;"></i>
-        <div class="card-text card4">
-
-            <h2>Donate For Stationary</h2>
-
-        </div>
-
-    </div>
-</section>
-<form class="form" id="form" onsubmit="return validation()" method="POST">
-    {% csrf_token %}
-    <div class="row">
-
-        <div class="col">
-
-            <h3 class="title">Details</h3>
-
-            <div class="inputBox">
-                <span>full name :</span>
-                <input type="text" placeholder="john deo" id="fnm" name="name">
-                <span id="firsterror" style="color:red;" class="errorl"></span>
-            </div>
-            <div class="inputBox">
-                <span>email :</span>
-                <input type="email" placeholder="example@example.com" id="email" name="email">
-                <span id="emailerror" style="color:red;" class="errorl"></span>
-            </div>
-            <div class="inputBox">
-                <span>phone No :</span>
-                <input type="number" placeholder="99999999999" id="phone" name="phone">
-                <span id="phoneerror" style="color:red;" class="errorl"></span>
-            </div>
-            <div class="inputBox">
-                <span>city :</span>
-                <input type="text" placeholder="mumbai" id="city" name="city">
-                <span id="cityerror" style="color:red;" class="errorl"></span>
-            </div>
-
-            <div class="flex">
-                <div class="inputBox">
-                    <span>state :</span>
-                    <input type="text" placeholder="Bihar" id="state" name="state">
-                    <span id="stateerror" style="color:red;" class="errorl"></span>
+            <form action="#">
+                {% csrf_token %}
+                <div class="input-field">
+                    <input type="text" placeholder="Enter your email" name="emaillog" id="emaillog">
+                    <i class="uil uil-envelope icon"></i>
+                    <br><span id="emaillogerror" style="color:red;" class="errorl"></span>
                 </div>
-                <div class="inputBox">
-                    <span>pin code :</span>
-                    <input type="text" placeholder="123 456" id="pin" name="pin">
-                    <span id="pinerror" style="color:red;" class="errorl"></span>
+                <div class="input-field">
+                    <input type="password" class="password" placeholder="Enter your password" name="passlog" id="passlog">
+                    <i class="uil uil-lock icon"></i>
+                    <br><span id="passlogerror" style="color:red;" class="errorl"></span>
+                    <i class="uil uil-eye-slash showHidePw"></i>
                 </div>
 
-            </div>
-            <div class="inputBox">
-                <span>What you Want to Donate :</span>
-                <input type="text" name="donatebox" id="message" placeholder="write your donation here">
-                <span id="messagerror" style="color:red;" class="errorl"></span>
-            </div>
+                <div class="checkbox-text">
 
+
+                    <!-- <a href="#" class="text">Forgot password?</a> -->
+                </div>
+
+                <div class="input-field button">
+                    <input type="button" value="Login">
+                </div>
+            </form>
+
+            <div class="login-signup">
+                <span class="text">Not a member?
+                        <a href="#" class="text signup-link">Signup Now</a>
+                    </span>
+            </div>
         </div>
 
+        <!-- Registration Form -->
+        <div class="form signup">
+            <span class="title">Registration</span>
+
+            <form class="form" id="form" onsubmit="return  validateForm();" method="POST">
+                {% csrf_token %}
+                <div class="row">
+
+                    <div class="col">
+
+
+                        <div class="inputBox">
+                            <span>full name :</span>
+                            <input type="text" placeholder="john deo" id="name" name="name">
+                            <span id="firsterror" style="color:red;" class="errorl"></span>
+                        </div>
+                        <div class="inputBox">
+                            <span>email :</span>
+                            <input type="email" placeholder="example@example.com" id="email" name="email">
+                            <span id="emailerror" style="color:red;" class="errorl"></span>
+                        </div>
+                        <div class="inputBox">
+                            <span>phone No :</span>
+                            <input type="number" placeholder="99999999999" id="phone" name="phone">
+                            <span id="phoneerror" style="color:red;" class="errorl"></span>
+                        </div>
+                        <div class="inputBox">
+                            <span>Password :</span>
+                            <input type="password" placeholder="******" id="pass" name="pass">
+                            <span id="passerror" style="color:red;" class="errorl"></span>
+                        </div>
+
+                        <div class="flex">
+                            <div class="inputBox">
+                                <span>Conform Password :</span>
+                                <input type="password" placeholder="****" id="cpass" name="cpass">
+                                <span id="cpasserror" style="color:red;" class="errorl"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <input type="submit" value="Donate Here" class="submit-btn">
+
+            </form>
+
+            <div class="login-signup">
+                <span class="text">Already a member?
+                        <a href="#" class="text login-link">Login Now</a>
+                    </span>
+            </div>
+            </div>
+        </div>
     </div>
 
-    <input type="submit" value="Donate Here" class="submit-btn">
+    <script>
+        const container = document.querySelector(".container"),
+            pwShowHide = document.querySelectorAll(".showHidePw"),
+            pwFields = document.querySelectorAll(".password"),
+            signUp = document.querySelector(".signup-link"),
+            login = document.querySelector(".login-link");
 
-</form>
-</div>
+        //   js code to show/hide password and change icon
+        pwShowHide.forEach(eyeIcon => {
+            eyeIcon.addEventListener("click", () => {
+                pwFields.forEach(pwField => {
+                    if (pwField.type === "password") {
+                        pwField.type = "text";
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-    function validation() {
-        var name = document.getElementById("fnm").value;
-        var namecheck = /^[A-Za-z. ]{3,30}$/;
+                        pwShowHide.forEach(icon => {
+                            icon.classList.replace("uil-eye-slash", "uil-eye");
+                        })
+                    } else {
+                        pwField.type = "password";
 
-        if (namecheck.test(name)) {
-            document.getElementById('firsterror').innerHTML = "";
-            document.getElementById('fnm').style.borderColor = "blue";
-        } else {
-            document.getElementById('firsterror').innerHTML = " **please enter  Name**";
-            document.getElementById('fnm').style.borderColor = "red";
-            return false;
+                        pwShowHide.forEach(icon => {
+                            icon.classList.replace("uil-eye", "uil-eye-slash");
+                        })
+                    }
+                })
+            })
+        })
+
+        // js code to appear signup and login form
+        signUp.addEventListener("click", () => {
+            container.classList.add("active");
+        });
+        login.addEventListener("click", () => {
+            container.classList.remove("active");
+        });
+    </script>
+    <script type="text/javascript">
+        function validateFirstName() {
+            var name = document.getElementById('name').value;
+            if (name.length == 0) {
+                document.getElementById('nameerror').innerHTML = " **Name cannot be empty **";
+                document.getElementById('name').style.borderColor = "red";
+
+                return false;
+
+            }
+            if (!name.match(/^[a-zA-Z]{3,}(?: [a-zA-Z]+){0,2}$/)) {
+                document.getElementById('nameerror').innerHTML = " **Name cannot be empty **";
+                document.getElementById('name').style.borderColor = "red";
+                return false;
+            }
+            document.getElementById('nameerror').innerHTML = "";
+            document.getElementById('name').style.borderColor = "blue";
+            return true;
         }
 
-        var email = document.getElementById("email").value;
-        var emailcheck = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-        if (emailcheck.test(email)) {
+        function validateEmail() {
+
+            var email = document.getElementById('email').value;
+            if (email.length == 0) {
+                document.getElementById('emailerror').innerHTML = " **please enter valid email**";
+                document.getElementById('email').style.borderColor = "red";
+                return false;
+
+            }
+
+            if (!email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+                document.getElementById('emailerror').innerHTML = " **please enter valid email**";
+                document.getElementById('email').style.borderColor = "red";
+                return false;
+
+            }
             document.getElementById('emailerror').innerHTML = " ";
             document.getElementById('email').style.borderColor = "blue";
-        } else {
-            document.getElementById('emailerror').innerHTML = " **please enter valid email Id**";
-            document.getElementById('email').style.borderColor = "red";
-            return false;
+            return true;
+
         }
 
-        var phone = document.getElementById("phone").value;
-        var phonecheck = /^[0-9]{10}$/;
+        function validatePhone() {
+            var phone = document.getElementById('phone').value;
+            if (phone.length == 0) {
+                document.getElementById('phoneerror').innerHTML = " ** Phone number cannot be empty **";
+                document.getElementById('phone').style.borderColor = "red";
+                return false;
+            }
 
-        if (phonecheck.test(phone)) {
+            if (!phone.match(/^[0]?[789]\d{9}$/)) {
+                document.getElementById('phoneerror').innerHTML = " **please enter valid Phone number**";
+                document.getElementById('phone').style.borderColor = "red";
+                return false;
+            }
+
             document.getElementById('phoneerror').innerHTML = " ";
             document.getElementById('phone').style.borderColor = "blue";
-        } else {
-            document.getElementById('phoneerror').innerHTML = " **please enter valid phone**";
-            document.getElementById('phone').style.borderColor = "red";
-            return false;
-        }
 
-        var city = document.getElementById("city").value;
-        var citycheck = /^([\w\W ]{3,100})$/;
-        if (citycheck.test(city)) {
-            document.getElementById('cityerror').innerHTML = " ";
-            document.getElementById('city').style.borderColor = "blue";
-        } else {
-            document.getElementById('cityerror').innerHTML = " **please enter city**";
-            document.getElementById('city').style.borderColor = "red";
-            return false;
-        }
+            return true;
 
-        var state = document.getElementById("state").value;
-        var statecheck = /^([\w\W ]{3,100})$/;
-        if (statecheck.test(state)) {
-            document.getElementById('stateerror').innerHTML = " ";
-            document.getElementById('state').style.borderColor = "blue";
-        } else {
-            document.getElementById('stateerror').innerHTML = " **please enter state**";
-            document.getElementById('state').style.borderColor = "red";
-            return false;
         }
 
 
-        var pin = document.getElementById("pin").value;
-        var pincheck = /^[0-9]{6}$/;
+        function validatePass() {
+            var pass = document.getElementById("pass").value;
+            var passcheck = /^([\w\W ]{3,100})$/;
+            if (passcheck.test(pass)) {
+                document.getElementById('passerror').innerHTML = " ";
+                document.getElementById('pass').style.borderColor = "blue";
+            } else {
+                document.getElementById('passerror').innerHTML = " **please enter valid password**";
+                document.getElementById('pass').style.borderColor = "red";
+                return false;
+            }
 
-        if (pincheck.test(pin)) {
-            document.getElementById('pinerror').innerHTML = " ";
-            document.getElementById('pin').style.borderColor = "blue";
-        } else {
-            document.getElementById('pinerror').innerHTML = " **please enter valid pin**";
-            document.getElementById('pin').style.borderColor = "red";
-            return false;
-        }
-        var message = document.getElementById("message").value;
-        var messagecheck = /^[A-Za-z. ]{3,30}$/;
-
-        if (messagecheck.test(message)) {
-            document.getElementById('messagerror').innerHTML = "";
-            document.getElementById('message').style.borderColor = "blue";
-        } else {
-            document.getElementById('messagerror').innerHTML = " **please enter Message**";
-            document.getElementById('message').style.borderColor = "red";
-            return false;
+            var cpass = document.getElementById("cpass").value;
+            if (pass != cpass) {
+                document.getElementById('cpasserror').innerHTML = " ** password doesn't match**";
+                document.getElementById('cpass').style.borderColor = "red";
+                return false;
+            }
         }
 
+        function validateForm() {
+            if (!validateFirstName() || !validateEmail() || !validatePhone() || !validatePass()) {
 
-        alert('Thank You for filling the form')
-
-    }
-</script>
-
-{% endblock body %}
+                //Validation Message
+                return false;
+            } else {
+                submitted = true;
+                swal({
+                    title: "Thank You!",
+                    text: "You successfully Submited The Form!",
+                    icon: "success",
+                    button: "Done!",
+                });
+                return true;
+            }
+        }
+    </script>
+    {% endblock body %}
