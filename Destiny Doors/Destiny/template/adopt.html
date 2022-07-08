@@ -148,7 +148,7 @@
     </div>
     <div class="right">
         <h1 id="heading">Family Adoption Registration</h1>
-        <form action="">{% csrf_token %}
+        <form action="" method="post">{% csrf_token %}
             <h3 id="heading2">Basic Detail</h3>
             <br><br>
             <span>Applicant Name    :   </span><input type="text" id="Aname" name="Aname"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -157,12 +157,13 @@
             <span id="Anameerror" style="color:red;" class="errorl"></span>
             <span id="doberror" style="color:red;" class="errorl"></span>
             <br><br><br>
-
-            <span>Choose Gender</span>&emsp;
-            <input type="radio" id="male" name="male" value="male">
-            <span>Male</span>
-            <input type="radio" id="female" name="female" value="female"><span>Female</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-            <label for="Category" id="catchoose">Choose a Category:</label>&emsp;
+            <label for="gender" id="genderchoose">Choose a Gender:</label>&emsp;
+            <select id="gender" name="gender" form="gender">
+                <option value="Choose">Choose</option>
+  <option value="male">male</option>
+  <option value="female">female</option></select>
+            <span id="gendererror" style="color:red;" class="errorl"></span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="Category" id="genderchoose">Choose a Category:</label>&emsp;
             <select id="Category " name="Category " form="Category ">
                 <option value="Choose">Choose</option>
   <option value="Indian">Indian</option>
@@ -187,8 +188,8 @@
             <span id="emailerror" class="errorl" style="color:red;"></span>
             <span id="phoneerror" class="errorl" style="color:red;"></span><br><br><br>
 
-            <label for="id ">Marital Status:</label>
-            <select id="id " name="id " form="id ">
+            <label for="martialstat">Marital Status:</label>
+            <select id="martialstat" name="martialstat" form="martialstat">
                 <option value="Choose" id="marital">Choose</option>
 <option value="Single">Single</option>
 <option value="Divorcee">Divorcee</option>
@@ -205,10 +206,12 @@
             <span id="nameerror1" style="color:red;" class="errorl"></span>
             <span id="doberror1" style="color:red;" class="errorl"></span><br><br><br>
 
-            <span>Choose Gender</span>&emsp;
-            <input type="radio" id="male" name="male1" value="male">
-            <span>Male</span>
-            <input type="radio" id="female" name="female1" value="female1"><span>Female</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="gender1" id="genderchoose1">Choose a Gender:</label>&emsp;
+            <select id="gender1 " name="gender1" form="gender1">
+                <option value="Choose">Choose</option>
+  <option value="male1">male</option>
+  <option value="female1">female</option></select>
+            <span id="gendererror" style="color:red;" class="errorl"></span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             <label for="Category1">Choose a Category:</label>&emsp;
             <select id="Category1" name="Category1" form="Category1 ">
                 <option value="Choose">Choose</option>
@@ -218,8 +221,8 @@
             <label for="id1">Choose a ID:</label>
             <select id="id1" name="id1 " form="id1 ">
                 <option value="Choose">Choose</option>
-<option value="Aadhar">Aadhar</option>
-<option value="PAN">PAN Card</option>
+<option value="aadhar">Aadhar</option>
+<option value="pan">PAN Card</option>
 <option value="voter">VOTER ID</option>
 <option value="passport">PASSPORT</option></select> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             <span>ID Number</span>&nbsp;&nbsp;<input type="number" id="idno1" name="idno1">

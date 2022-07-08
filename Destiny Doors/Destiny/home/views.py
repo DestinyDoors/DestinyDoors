@@ -1,14 +1,26 @@
 from email import message
 from email.message import Message
 from pyexpat.errors import messages
+from ssl import Purpose
+from unicodedata import category
 from django.shortcuts import render, HttpResponse , redirect
-from .models import   partnersignup,winterdonation,donateanything, givemoney, newboarn, age_3_5y, age_6_10y, age_11_15y, age_16_18y
+from .models import   adoptform,partnerreg,winterdonation,donateanything, givemoney, newboarn, age_3_5y, age_6_10y, age_11_15y, age_16_18y
 #from .models import contactme
- 
+from django.contrib.auth import authenticate, login
 from home.models import moneydonate  
 from math import *
-from django.core.mail import send_mail
+from django.contrib.auth.models import User 
+from django.contrib.auth.forms import UserCreationForm
 
+
+def sign_up(request):
+    if request.method == "POST":
+     fm = UserCreationForm(request.POST)
+     if fm.is_valid():
+        fm.save()
+    else:
+        fm = UserCreationForm()
+    return render(request,'signup.html',{'form':fm})
 
 
 # Create your views here.
@@ -26,16 +38,57 @@ def moneyd(request):
 
     return render(request, 'moneyd.html')
 
-
+'''
 def partner(request):
     if request.method=='POST':
-        name=request.POST.get('name')
-        email=request.POST.get('email')
-        phone=request.POST.get('phone')
-        cpass=request.POST.get('cpass')
-        sdata=partnersignup(Name=name,Email=email,Phone=phone,Password=cpass)
-        sdata.save()
+        Organization = request.POST.get('name')
+        Email = request.POST.get('email')
+        Phone = request.POST.get('phone')
+        Purpose = request.POST.get('purpose')
+        Date = request.POST.get('date')
+
+        DP=partnerreg(Organization=Organization,Email=Email,Phone=Phone,Purpose=Purpose,Date=Date)
     return render(request, 'partner.html')
+'''
+def handleSignUp(request):
+    if request.method=="POST":
+        # Get the post parameters
+        username=request.POST['username']
+        email=request.POST['email']
+        fname=request.POST['fname']
+        lname=request.POST['lname']
+        pass1=request.POST['pass1']
+        pass2=request.POST['pass2']
+
+
+        # Create the user
+        myuser = User.objects.create_user(username, email, pass1)
+        myuser.first_name= fname
+        myuser.last_name= lname
+        myuser.save()
+
+        return redirect('/')
+
+    else:
+       return render(request, 'partner.html')
+
+def handeLogin(request):
+    if request.method=="POST":
+        # Get the post parameters
+        loginusername=request.POST['loginusername']
+        loginpassword=request.POST['loginpassword']
+
+        user=authenticate(username= loginusername, password= loginpassword)
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Successfully Logged In")
+            return redirect("/about")
+        else:
+            messages.error(request, "Invalid credentials! Please try again")
+            return redirect("/contact")
+
+    return HttpResponse("404- Not found")
+
 def donationdone(request):
     
     return render(request, 'donationdone.html')
@@ -134,11 +187,65 @@ def child(request):
     params = {'no_of_slides': nSlides, 'range': range(
         nSlides, 1), 'newboarn': newboarns}
     return render(request, 'meetchildren.html', params)
-
+def adopt(request):
+    return render(request, 'adopt.html')
+    
 
 def adopt(request):
+    if request.method=='POST':
+        Aname=request.POST.get('Aname')
+        dob=request.POST.get('dob')
+        Gender=request.POST.get('gender')
+        Category=request.POST.get('Category')
+        id=request.POST.get('id')
+        idno=request.POST.get('idno')
+        email=request.POST.get('email')
+        phone=request.POST.get('phone')
+        martialstat=request.POST.get('martialstat')
 
-    
+        name1=request.POST.get('name1')
+        dob1=request.POST.get('dob1')
+        gender1=request.POST.get('gender1')
+        Category1=request.POST.get('Category1')
+        id1=request.POST.get('id1')
+        idno1=request.POST.get('idno1')
+
+        email1=request.POST.get('email1')
+        phone1=request.POST.get('phone1')
+        bchild=request.POST.get('bchild')
+        achild=request.POST.get('achild')
+
+        address=request.POST.get('address')
+        district=request.POST.get('district')
+        state=request.POST.get('state')
+        pincode=request.POST.get('pincode')
+
+        address1=request.POST.get('address1')
+        district2=request.POST.get('district2')
+        state2=request.POST.get('state2')
+        pincode2=request.POST.get('pincode2')
+        D=adoptform(Applicant_Name=Aname,Date_of_Birth=dob,Gender=Gender,Category=Category,Document=id,ID_NO=idno,
+        Email_ID=email,Phone=phone,Martital_Status=martialstat,Spouse_name=name1,Spouse_DOB=dob1,Spouse_Gender=gender1,
+        Spouse_Category=Category1,Spouse_Document=id1,Spouse_ID_NO=idno1,Spouse_Email_ID=email1,Spouse_Phone=phone1,
+        Biological_children=bchild,Adopted_children=achild,Address=address,District=district,State=state,Pin_code=pincode,
+        Current_Address=address1,Current_District=district2,Current_State=state2,Current_Pin_code=pincode2)
+
+
+    if request.method=='POST':
+        Email_login=request.POST.get('emaillog')
+        Password_login=request.POST.get('passlog')
+
+        user = authenticate(username=Email_login, password=Password_login)
+        
+        if user is not None:
+            login(request, user)
+            Aname = user.Aname
+            # messages.success(request, "Logged In Sucessfully!!")
+            return render(request, "authentication/adopt.html",{"Aname":Aname})
+        else:
+            messages.error(request, "Bad Credentials!!")
+            return redirect('home')
+
     return render(request, 'adopt.html')
 
 

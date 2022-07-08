@@ -128,33 +128,36 @@ class donateanything(models.Model):
     def __str__(self):
         return self.Name
 
-    
-class partnersignup(models.Model):
-    Name = models.CharField(max_length=80)
-    Email = models.EmailField(max_length=80)
+class partnerreg(models.Model):
+    Organization = models.CharField(max_length=100)
+    Email = models.EmailField(max_length=254)
     Phone = models.IntegerField()
-    Password = models.CharField(max_length=80)
+    Purpose = models.CharField(max_length=100)
+    Date = models.DateField( auto_now=False, auto_now_add=False)
     def __str__(self):
-        return self.Name
+        return self.Organization
 
 class adoptform(models.Model):
     Applicant_Name = models.CharField(max_length=80)
     Date_of_Birth = models.DateField(auto_now=False, auto_now_add=False)
     Gender = {
-        ('male','male'),
-        ('female','female')
+        ('Male','male'),
+        ('Female','female')
     }
     Gender=models.CharField(max_length=10,choices=Gender)
 
     Category = {
-        ('indian','indian'),
-        ('nri','nri')
+        ('Indian','indian'),
+        ('Nri','nri')
     }
     Category=models.CharField(max_length=10,choices=Category)
 
     Document = {
-        ('indian','indian'),
-        ('nri','nri')
+        ('Aadhar','aadhar'),
+        ('PAN','pan'),
+        ('voter','voter'),
+        ('Passport','passport')
+
     }
     Document=models.CharField(max_length=10,choices=Document)
     ID_NO = models.CharField(max_length=80)
@@ -162,10 +165,10 @@ class adoptform(models.Model):
     Phone = models.CharField(max_length=80)
 
     Martital_Status = {
-        ('Single','Single'),
-        ('Divorcee','Divorcee')
-        ('Married','Married'),
-        ('Widow','Widow')
+        ('Single','single'),
+        ('Divorcee','divorcee'),
+        ('Married','married'),
+        ('Widow','widow')
     }
     Martital_Status=models.CharField(max_length=10,choices=Martital_Status)
 
@@ -174,28 +177,31 @@ class adoptform(models.Model):
 
 
     Spouse_Gender = {
-        ('male','male'),
-        ('female','female')
+        ('Male','male'),
+        ('Female','female')
     }
     Spouse_Gender=models.CharField(max_length=10,choices=Spouse_Gender)
 
     Spouse_Category = {
-        ('indian','indian'),
-        ('nri','nri')
+        ('Indian','indian'),
+        ('Nri','nri')
     }
     Spouse_Category=models.CharField(max_length=10,choices=Spouse_Category)
 
     Spouse_Document = {
-        ('indian','indian'),
-        ('nri','nri')
+        ('Aadhar','aadhar'),
+        ('PAN','pan'),
+        ('voter','voter'),
+        ('Passport','passport')
+
     }
     Spouse_Document=models.CharField(max_length=10,choices=Spouse_Document)
     Spouse_ID_NO = models.CharField(max_length=80)
     Spouse_Email_ID = models.CharField(max_length=80)
     Spouse_Phone = models.CharField(max_length=80)
 
-    Biological_Childrens = models.IntegerField()
-    Adopted_childrens = models.IntegerField()
+    Biological_children = models.IntegerField()
+    Adopted_children = models.IntegerField()
     
     Address = models.CharField(max_length=80)
     District = models.CharField(max_length=80)
@@ -208,4 +214,4 @@ class adoptform(models.Model):
     Current_Pin_code = models.IntegerField()
 
     
-    
+  

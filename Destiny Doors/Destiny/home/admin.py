@@ -16,4 +16,7 @@ admin.site.register(winterdonation)
 admin.site.register(moneydonate)
 admin.site.register(donateanything)
 admin.site.register(givemoney)
-admin.site.register(partnersignup)
+
+admin.site.register(partnerreg)
+
+admin.site.register(adoptform)

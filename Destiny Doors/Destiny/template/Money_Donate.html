@@ -2,7 +2,9 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
     body {
-        background-color: #fff8f8;
+        background: url('https://images.newindianexpress.com/uploads/user/imagelibrary/2022/3/20/w900X450/kadapa4_1903chn_40.jpg?w=640&dpr=1.3');
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     /* next section */
     
@@ -41,9 +43,10 @@
     form {
         padding: 20px;
         width: 700px;
-        background: #fff;
+        background: #0a0909b3;
         box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
-        margin: 0 0 0 400px;
+        margin: 40px 0 40px 400px;
+        color: antiquewhite;
     }
     
     form .row {
@@ -57,8 +60,9 @@
     }
     
     form .row .col .title {
-        font-size: 20px;
-        color: #333;
+        font-size: 30px;
+        color: bisque;
+        margin: 8px 0 0 73px;
         padding-bottom: 5px;
         text-transform: uppercase;
     }
@@ -70,6 +74,7 @@
     form .row .col .inputBox span {
         margin-bottom: 10px;
         display: block;
+        font-size: 20px;
     }
     
     form .row .col .inputBox input {
@@ -78,6 +83,16 @@
         padding: 10px 15px;
         font-size: 15px;
         text-transform: none;
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        color: white;
+        outline: none;
+        background-color: #0b0b0b00;
+    }
+    
+    input::placeholder {
+        color: rgb(223, 194, 194);
     }
     
     form .row .col .inputBox input:focus {
@@ -131,14 +146,13 @@
     }
 </style>{% endblock head %} {% block body %}
 
-<h1 class="sec-1-h">Fill the form below</h1>
 <form class="form" id="form" onsubmit="return  validateForm();" method="POST">
     {% csrf_token %}
     <div class="row">
 
         <div class="col">
 
-            <h3 class="title">payment</h3>
+            <h3 class="title">Donate Money For Childrens</h3>
 
             <div class="inputBox">
                 <span>cards accepted :</span>

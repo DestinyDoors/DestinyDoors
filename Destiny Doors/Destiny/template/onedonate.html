@@ -3,7 +3,13 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
     /* card */
     
-    .onee {
+    body {
+        background: url('https://static.toiimg.com/thumb/msid-91993262,imgsize-50950,width-800,height-600,resizemode-75/91993262.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .whole {
         display: flex;
     }
     
@@ -11,11 +17,11 @@
         display: grid;
         grid-template-columns: 190px;
         grid-template-rows: 0px 65px 80px;
+        height: 20vh;
         grid-template-areas: "image" "text" "stats";
         border-radius: 16px;
-        background: white;
+        background: #00000069;
         /* box-shadow: 5px 5px 15px rgb(0 0 0 / 90%); */
-        font-family: roboto;
         text-align: center;
         transition: 0.5s ease;
         cursor: pointer;
@@ -37,10 +43,9 @@
     
     .card-text h2 {
         margin-top: 75px;
-        font-size: 17px;
-        color: black;
+        font-size: 21px;
+        color: white;
         margin-top: 75px;
-        font-family: Lucida Handwriting;
         font-weight: lighter;
     }
     
@@ -78,12 +83,25 @@
         height: auto;
     }
     
+    .first-2 {
+        display: flex;
+    }
+    
+    .second-2 {
+        display: flex;
+    }
+    
+    .thired-2 {
+        display: flex;
+    }
+    
     form {
         padding: 20px;
         width: 700px;
-        background: #fff;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
-        margin: 0 0 0 400px;
+        background: #0c0a0a87;
+        box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+        margin: 35px 0 0 100px;
+        height: 89vh;
     }
     
     form .row {
@@ -98,7 +116,7 @@
     
     form .row .col .title {
         font-size: 20px;
-        color: #333;
+        color: white;
         padding-bottom: 5px;
         text-transform: uppercase;
     }
@@ -110,14 +128,26 @@
     form .row .col .inputBox span {
         margin-bottom: 10px;
         display: block;
+        color: aliceblue;
+        font-size: 20px;
     }
     
     form .row .col .inputBox input {
         width: 100%;
         border: 1px solid #ccc;
+        border-top: 0;
+        border-right: 0;
+        border-left: 0;
         padding: 10px 15px;
         font-size: 15px;
         text-transform: none;
+        color: wheat;
+        outline: none;
+        background-color: #14141400;
+    }
+    
+    input::placeholder {
+        color: rgb(211, 186, 186);
     }
     
     form .row .col .inputBox input:focus {
@@ -172,115 +202,130 @@
 </style>{% endblock head %} {% block body %}
 <h1 class="sec-1-h">Donate Any Thing You Want</h1>
 <hr class="hr2">
-<section class="onee">
-    <div class="card">
+<section class="whole">
+    <section class="onee">
+        <div class="first-2">
+            <div class="card">
 
-        <i class="fa-solid fa-bowl-food" style="font-size:40px ; color:#b38a05 ; margin-top: 35px;"></i>
-        <div class="card-text">
-            <h2>Donate Food</h2>
+                <i class="fa-solid fa-bowl-food" style="font-size:40px ; color:#b38a05 ; margin-top: 35px;"></i>
+                <div class="card-text">
+                    <h2>Donate Food</h2>
+                </div>
+
+
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-shirt" style="font-size:40px ; color:#23078a ; margin-top: 35px;"></i>
+
+                <div class="card-text card2">
+
+                    <h2>Donate Cloths</h2>
+
+                </div>
+
+            </div>
         </div>
+        <div class="second-2">
+            <div class="card">
 
+                <i class="fa-solid fa-car-side" style="font-size:40px ; color:#d40e78 ; margin-top: 35px;"></i>
+                <div class="card-text card2">
 
-    </div>
-    <div class="card">
-        <i class="fa-solid fa-shirt" style="font-size:40px ; color:#23078a ; margin-top: 35px;"></i>
+                    <h2>Donate Toy</h2>
 
-        <div class="card-text card2">
+                </div>
 
-            <h2>Donate Cloths</h2>
+            </div>
 
-        </div>
+            <div class="card">
+                <i class="fa-solid fa-heart-pulse" style="font-size:40px ; color:red ; margin-top: 35px;"></i>
+                <div class="card-text card4">
 
-    </div>
-    <div class="card">
+                    <h2>Donate For Health</h2>
 
-        <i class="fa-solid fa-car-side" style="font-size:40px ; color:#d40e78 ; margin-top: 35px;"></i>
-        <div class="card-text card2">
+                </div>
 
-            <h2>Donate Toy</h2>
-
-        </div>
-
-    </div>
-
-    <div class="card">
-        <i class="fa-solid fa-heart-pulse" style="font-size:40px ; color:red ; margin-top: 35px;"></i>
-        <div class="card-text card4">
-
-            <h2>Donate For Health</h2>
-
-        </div>
-
-    </div>
-
-
-    <div class="card">
-        <i class="fa-solid fa-book-open-reader" style="font-size:40px ; color:#0fbc35 ; margin-top: 35px;"></i>
-        <div class="card-text card4">
-
-            <h2>Donate For Stationary</h2>
+            </div>
 
         </div>
+        <div class="thired-2">
+            <div class="card">
+                <i class="fa-solid fa-book-open-reader" style="font-size:40px ; color:#0fbc35 ; margin-top: 35px;"></i>
+                <div class="card-text card4">
 
+                    <h2>Donate For Stationary</h2>
+
+                </div>
+
+            </div>
+            <div class="card">
+
+                <i class="fa-solid fa-bowl-food" style="font-size:40px ; color:#0d0d0c ; margin-top: 35px;"></i>
+                <div class="card-text">
+                    <h2>Donate Other things</h2>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <form class="form" id="form" onsubmit="return validation()" method="POST">
+        {% csrf_token %}
+        <div class="row">
+
+            <div class="col">
+
+                <h3 class="title">Details</h3>
+
+                <div class="inputBox">
+                    <span>full name :</span>
+                    <input type="text" placeholder="john deo" id="fnm" name="name">
+                    <span id="firsterror" style="color:red;" class="errorl"></span>
+                </div>
+                <div class="inputBox">
+                    <span>email :</span>
+                    <input type="email" placeholder="example@example.com" id="email" name="email">
+                    <span id="emailerror" style="color:red;" class="errorl"></span>
+                </div>
+                <div class="inputBox">
+                    <span>phone No :</span>
+                    <input type="number" placeholder="99999999999" id="phone" name="phone">
+                    <span id="phoneerror" style="color:red;" class="errorl"></span>
+                </div>
+                <div class="inputBox">
+                    <span>city :</span>
+                    <input type="text" placeholder="mumbai" id="city" name="city">
+                    <span id="cityerror" style="color:red;" class="errorl"></span>
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>state :</span>
+                        <input type="text" placeholder="Bihar" id="state" name="state">
+                        <span id="stateerror" style="color:red;" class="errorl"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>pin code :</span>
+                        <input type="text" placeholder="123 456" id="pin" name="pin">
+                        <span id="pinerror" style="color:red;" class="errorl"></span>
+                    </div>
+
+                </div>
+                <div class="inputBox">
+                    <span>What you Want to Donate :</span>
+                    <input type="text" name="donatebox" id="message" placeholder="write your donation here">
+                    <span id="messagerror" style="color:red;" class="errorl"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <input type="submit" value="Donate Here" class="submit-btn">
+
+    </form>
     </div>
 </section>
-<form class="form" id="form" onsubmit="return validation()" method="POST">
-    {% csrf_token %}
-    <div class="row">
-
-        <div class="col">
-
-            <h3 class="title">Details</h3>
-
-            <div class="inputBox">
-                <span>full name :</span>
-                <input type="text" placeholder="john deo" id="fnm" name="name">
-                <span id="firsterror" style="color:red;" class="errorl"></span>
-            </div>
-            <div class="inputBox">
-                <span>email :</span>
-                <input type="email" placeholder="example@example.com" id="email" name="email">
-                <span id="emailerror" style="color:red;" class="errorl"></span>
-            </div>
-            <div class="inputBox">
-                <span>phone No :</span>
-                <input type="number" placeholder="99999999999" id="phone" name="phone">
-                <span id="phoneerror" style="color:red;" class="errorl"></span>
-            </div>
-            <div class="inputBox">
-                <span>city :</span>
-                <input type="text" placeholder="mumbai" id="city" name="city">
-                <span id="cityerror" style="color:red;" class="errorl"></span>
-            </div>
-
-            <div class="flex">
-                <div class="inputBox">
-                    <span>state :</span>
-                    <input type="text" placeholder="Bihar" id="state" name="state">
-                    <span id="stateerror" style="color:red;" class="errorl"></span>
-                </div>
-                <div class="inputBox">
-                    <span>pin code :</span>
-                    <input type="text" placeholder="123 456" id="pin" name="pin">
-                    <span id="pinerror" style="color:red;" class="errorl"></span>
-                </div>
-
-            </div>
-            <div class="inputBox">
-                <span>What you Want to Donate :</span>
-                <input type="text" name="donatebox" id="message" placeholder="write your donation here">
-                <span id="messagerror" style="color:red;" class="errorl"></span>
-            </div>
-
-        </div>
-
-    </div>
-
-    <input type="submit" value="Donate Here" class="submit-btn">
-
-</form>
-</div>
-
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     function validation() {

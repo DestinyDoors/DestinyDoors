@@ -5,6 +5,12 @@
         background-color: #fff8f8;
     }
     
+    section {
+        background: url('../static/winter.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
     #winterpic {
         width: 98vw;
     }
@@ -43,7 +49,7 @@
         width: 700px;
         background: #fff;
         box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
-        margin: 0 0 0 400px;
+        margin: 0 0 0 38px;
     }
     
     form .row {
@@ -130,68 +136,67 @@
         padding: 20px;
     }
 </style>{% endblock head %} {% block body %}
-<h1 class="sec-1-h">Donate Any Thing In Winter Campaign</h1>
+<h1 class="sec-1-h">Donate Any Thing In Campaign</h1>
 <hr class="hr2">
-<img src="../static/winter.jpg" alt="" id="winterpic">
-<br><br><br>
-<h1 class="sec-1-h">Fill the form below</h1>
-<form class="form" id="form" onsubmit="return validation()" method="POST">
-    {% csrf_token %}
-    <div class="row">
+<section>
 
-        <div class="col">
+    <form class="form" id="form" onsubmit="return validation()" method="POST">
+        {% csrf_token %}
+        <div class="row">
 
-            <h3 class="title">Details</h3>
+            <div class="col">
 
-            <div class="inputBox">
-                <span>full name :</span>
-                <input type="text" placeholder="john deo" id="fnm" name="name">
-                <span id="firsterror" style="color:red;" class="errorl"></span>
-            </div>
-            <div class="inputBox">
-                <span>email :</span>
-                <input type="email" placeholder="example@example.com" id="email" name="email">
-                <span id="emailerror" style="color:red;" class="errorl"></span>
-            </div>
-            <div class="inputBox">
-                <span>phone No :</span>
-                <input type="number" placeholder="99999999999" id="phone" name="phone">
-                <span id="phoneerror" style="color:red;" class="errorl"></span>
-            </div>
-            <div class="inputBox">
-                <span>city :</span>
-                <input type="text" placeholder="mumbai" id="city" name="city">
-                <span id="cityerror" style="color:red;" class="errorl"></span>
-            </div>
+                <h3 class="title">Details</h3>
 
-            <div class="flex">
                 <div class="inputBox">
-                    <span>state :</span>
-                    <input type="text" placeholder="Bihar" id="state" name="state">
-                    <span id="stateerror" style="color:red;" class="errorl"></span>
+                    <span>full name :</span>
+                    <input type="text" placeholder="john deo" id="fnm" name="name">
+                    <span id="firsterror" style="color:red;" class="errorl"></span>
                 </div>
                 <div class="inputBox">
-                    <span>pin code :</span>
-                    <input type="text" placeholder="123 456" id="pin" name="pin">
-                    <span id="pinerror" style="color:red;" class="errorl"></span>
+                    <span>email :</span>
+                    <input type="email" placeholder="example@example.com" id="email" name="email">
+                    <span id="emailerror" style="color:red;" class="errorl"></span>
+                </div>
+                <div class="inputBox">
+                    <span>phone No :</span>
+                    <input type="number" placeholder="99999999999" id="phone" name="phone">
+                    <span id="phoneerror" style="color:red;" class="errorl"></span>
+                </div>
+                <div class="inputBox">
+                    <span>city :</span>
+                    <input type="text" placeholder="mumbai" id="city" name="city">
+                    <span id="cityerror" style="color:red;" class="errorl"></span>
                 </div>
 
-            </div>
-            <div class="inputBox">
-                <span>What you Want to Donate :</span>
-                <input type="text" name="donatebox" id="message" placeholder="write your donation here">
-                <span id="messagerror" style="color:red;" class="errorl"></span>
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>state :</span>
+                        <input type="text" placeholder="Bihar" id="state" name="state">
+                        <span id="stateerror" style="color:red;" class="errorl"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>pin code :</span>
+                        <input type="text" placeholder="123 456" id="pin" name="pin">
+                        <span id="pinerror" style="color:red;" class="errorl"></span>
+                    </div>
+
+                </div>
+                <div class="inputBox">
+                    <span>What you Want to Donate :</span>
+                    <input type="text" name="donatebox" id="message" placeholder="write your donation here">
+                    <span id="messagerror" style="color:red;" class="errorl"></span>
+                </div>
+
             </div>
 
         </div>
 
+        <input type="submit" value="Donate Here" class="submit-btn">
+
+    </form>
     </div>
-
-    <input type="submit" value="Donate Here" class="submit-btn">
-
-</form>
-</div>
-
+</section>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     function validation() {
