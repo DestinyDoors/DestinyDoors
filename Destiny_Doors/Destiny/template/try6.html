@@ -1,0 +1,281 @@
+{% extends 'base.html' %}{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .sec-1 {
+        display: flex;
+    }
+    
+    .left {
+        display: flex;
+        flex-direction: column;
+        width: 20vw;
+        margin-top: 5px;
+        position: sticky;
+    }
+    
+    .left a:link,
+    .left a:visited {
+        background-color: #ececec;
+        color: black;
+        padding: 9px 0px 0 0;
+        /* line-height: 1; */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        height: 54px;
+    }
+    
+    .left a:hover,
+    .left a:active {
+        background-color: #261e2408;
+        color: red;
+    }
+    
+    .navs1,
+    .navs2,
+    .navs3,
+    .navs4 {
+        height: 50px;
+        cursor: pointer;
+        color: black;
+        border: 1px solid black;
+        font-family: auto;
+        font-size: 18px;
+    }
+    
+    .right {
+        width: 80vw;
+        /*border: 1px solid black;
+        height: 90vh;
+        border-top: 0;
+        border-bottom: 0;
+        border-right: 0;*/
+    }
+    
+    #heading {
+        height: 50px;
+        width: 98%;
+        text-align: center;
+        /* background-color: #8ecaf24a; */
+        font-size: 33px;
+        margin: 5px 0 0 10px;
+        /* line-height: 1; */
+        background-color: #0871c1;
+        color: #fff;
+        padding-top: 3px;
+    }
+    
+    #heading2 {
+        color: white;
+        width: 48vw;
+        font-family: auto;
+        letter-spacing: 2px;
+        margin: 42px 0 0 0px;
+        background-color: #e50042c2;
+        text-align: center;
+        font-size: 25px;
+    }
+    
+    .right .details {
+        margin: 0 60px 0 30px;
+        font-size: 18px;
+    }
+    
+    .inside {
+        margin: 0 60px 0 60px;
+        font-size: 18px;
+    }
+    
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    
+    form {
+        margin: 5px 200px;
+        border: 2px solid black;
+        padding: 0 0 0 36px;
+        font-weight: bolder;
+    }
+    
+    form input {
+        border: 0px solid black;
+        border-bottom: 2px solid black;
+        outline: none;
+    }
+    
+    form textarea {
+        outline: none;
+        border: none;
+    }
+    
+    form .submit-btn {
+        width: 95%;
+        padding: 12px;
+        font-size: 17px;
+        background: #e50042c2;
+        color: #fff;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    
+    form .submit-btn:hover {
+        background: #f40f52c2;
+    }
+</style>
+{% endblock head %} {% block body %}
+<section class="sec-1">
+    <div class="left">
+        <a href="/adopt" class="navs1">Eligibility Criteria</a>
+        <a href="../static/guidlines.pdf" target="_blank" class="navs2">Guidlines For Adoptation</a>
+        <a href="../static/documents required.pdf" target="_blank" class="navs3">Documents Required</a>
+        <a href="../static/stats.pdf" target="_blank" class="navs4">Adoption Statistics</a>
+        <a href="../static/CARA-Annual-Report_2020-2021_Complete.pdf" target="_blank" class="navs4">Annual Report</a>
+        <a href="../static/incountry.pdf" target="_blank" class="navs4">Adoption Procedure for Incountry Relative Adoption</a>
+        <a href="../static/intercountry.pdf" target="_blank" class="navs4">Adoption Procedure for Intercountry Relative Adoption</a>
+        <a href="../static/step.pdf" target="_blank" class="navs4">Adoption Procedure for Step Parents</a>
+
+        <a href="../static/Regulation_Hindi.pdf" target="_blank" class="navs4">Adoption Regulation 2017 Hindi Version</a>
+        <a href="../static/Regulation_english.pdf" target="_blank" class="navs4">Adoption Regulation 2017 English Version</a>
+        <a href="../static/Bench Book For Adoptions.pdf" target="_blank" class="navs4">Bench Book For Adoptions</a>
+        <a href="/story" class="navs4">Success Story</a>
+    </div>
+    <div class="right">
+        <h1 id="heading">Family Adoption Registration</h1>
+        <form action="" method="post">{% csrf_token %}
+            <h3 id="heading2">Basic Details</h3>
+            <br><br>
+            <span>Applicant Name    :   </span><input type="text" id="Aname" name="Aname"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <span>Date of Birth     :   </span><input type="date" id="dob" name="dob">
+            <br>
+            <span id="Anameerror" style="color:red;" class="errorl"></span>
+            <span id="doberror" style="color:red;" class="errorl"></span>
+            <br><br><br>
+            <label for="gender" id="genderchoose">Choose a Gender:</label>&emsp;
+            <select id="gender" name="gender" form="gender">
+                <option value="Choose">Choose</option>
+  <option value="male">male</option>
+  <option value="female">female</option></select>
+            <span id="gendererror" style="color:red;" class="errorl"></span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="Category" id="genderchoose">Choose a Category:</label>&emsp;
+            <select id="Category " name="Category " form="Category ">
+                <option value="Choose">Choose</option>
+  <option value="Indian">Indian</option>
+  <option value="NRI">NRI</option></select>
+            <br><span id="catchooseerror" style="color:red;" class="errorl"></span>
+            <br><br><br><br>
+            <label for="id " id="idchoose">Choose a ID:</label>
+            <select id="id " name="id " form="id ">
+                <option value="Choose">Choose</option>
+<option value="Aadhar">Aadhar</option>
+<option value="PAN">PAN Card</option>
+<option value="voter">VOTER ID</option>
+<option value="passport">PASSPORT</option></select> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <span>ID Number</span>&nbsp;&nbsp;<input type="number" id="idno" name="idno">
+            </select>
+            <br><span id="idchooseeerror" style="color:red;" class="errorl"></span>
+            <span id="iderror" style="color:red;" class="errorl"></span><br><br><br>
+
+            <span>Email    Id      :   </span><input type="text" id="email" name="email"><span></span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <span>Phone No  :   </span><input type="number" id="phone" name="phone"><span></span>
+            <br><br>
+            <span id="emailerror" class="errorl" style="color:red;"></span>
+            <span id="phoneerror" class="errorl" style="color:red;"></span><br><br><br>
+
+            <label for="martialstat">Marital Status:</label>
+            <select id="martialstat" name="martialstat" form="martialstat">
+                <option value="Choose" id="marital">Choose</option>
+<option value="Single">Single</option>
+<option value="Divorcee">Divorcee</option>
+<option value="Married">Married</option>
+<option value="Widow">Widow</option>
+<br><span id="maritalerror" style="color:red;" class="errorl"></span>
+</select> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+            <h3 id="heading2">Spouse Detail ( If You are Married ) </h3>
+            <br><br>
+            <span> Name    :   </span><input type="text" id="name1" name="name1"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <span>Date of Birth     :   </span><input type="date" id="dob1" name="dob1">
+            <br>
+            <span id="nameerror1" style="color:red;" class="errorl"></span>
+            <span id="doberror1" style="color:red;" class="errorl"></span><br><br><br>
+
+            <label for="gender1" id="genderchoose1">Choose a Gender:</label>&emsp;
+            <select id="gender1 " name="gender1" form="gender1">
+                <option value="Choose">Choose</option>
+  <option value="male1">male</option>
+  <option value="female1">female</option></select>
+            <span id="gendererror" style="color:red;" class="errorl"></span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="Category1">Choose a Category:</label>&emsp;
+            <select id="Category1" name="Category1" form="Category1 ">
+                <option value="Choose">Choose</option>
+  <option value="Indian">Indian</option>
+  <option value="NRI">NRI</option></select>
+            <br><br><br><br>
+            <label for="id1">Choose a ID:</label>
+            <select id="id1" name="id1 " form="id1 ">
+                <option value="Choose">Choose</option>
+<option value="aadhar">Aadhar</option>
+<option value="pan">PAN Card</option>
+<option value="voter">VOTER ID</option>
+<option value="passport">PASSPORT</option></select> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <span>ID Number</span>&nbsp;&nbsp;<input type="number" id="idno1" name="idno1">
+            </select>
+            <br><span id="iderror1" style="color:red;" class="errorl"></span>
+            <span id="iderror1" style="color:red;" class="errorl"></span><br><br><br>
+
+            <span>Email    Id      :   </span><input type="text" id="email1" name="email1"><span></span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <span>Phone No  :   </span><input type="number" id="phone1" name="phone1"><span></span>
+            <br><br>
+            <span id="emailerror1" class="errorl" style="color:red;"></span>
+            <span id="phoneerror1" class="errorl" style="color:red;"></span>
+
+            <h3 id="heading2">Childrens Detail</h3>
+            <br><br>
+            <span>No Of Biological Children      :   </span><input type="number" id="bchild" name="bchild"><span></span>&emsp;&emsp;&emsp;&emsp;
+            <span>No Of Adopted Children  :   </span><input type="number" id="achild" name="achild"><span></span>
+            <br>
+            <span id="bchilderror" class="errorl" style="color:red;"></span>
+            <span id="achilderror" class="errorl" style="color:red;"></span>
+            <br>
+
+            <h3 id="heading2">Place of Habitual Residence</h3>
+            <br>
+            <span>Address       :   </span><br><br><textarea name="address" id="address" cols="80" rows="1" placeholder="write your Address here"></textarea>
+            <span id="addresserror" class="errorl" style="color:red;"></span>
+            <br><br>
+            <span>District    :   </span><input type="text" id="district" name="district">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <span>State     :   </span><input type="text" id="state" name="state"><span></span>
+            <br>
+            <span id="districterror" style="color:red;" class="errorl"></span>
+            <span id="stateerror" style="color:red;" class="errorl"></span><br>
+            <span>PIN CODE  :   </span><input type="number" id="pincode" name="pincode"><span>
+                <span id="pinerror" style="color:red;" class="errorl"></span>
+
+            <h3 id="heading2">Place of current Residence</h3>
+            <br><br>
+
+            <span>Address       :   </span><br><br><textarea name="address1" id="address1" cols="80" rows="1" placeholder="write your Address here"></textarea>
+            <span id="addresserror2" class="errorl" style="color:red;"></span>
+            <br><br>
+            <span>District    :   </span><input type="text" id="district2" name="district2">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <span>State     :   </span><input type="text" id="state2" name="state2"><span></span>
+            <br>
+            <span id="districterror2" style="color:red;" class="errorl"></span>
+            <span id="stateerror2" style="color:red;" class="errorl"></span><br>
+            <span>PIN CODE  :   </span><input type="number" id="pincode2" name="pincode2"><span>
+                    <span id="pinerror2" style="color:red;" class="errorl"></span>
+            <br><br>
+            <input type="submit" value="SUBMIT" class="submit-btn">
+            <br><br>
+        </form>
+    </div>
+
+</section>
+{% endblock body %}

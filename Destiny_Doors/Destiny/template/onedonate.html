@@ -199,7 +199,42 @@
     textarea {
         padding: 20px;
     }
+    /* close button */
+    
+    .close {
+        position: absolute;
+        right: 32px;
+        top: 32px;
+        width: 32px;
+        height: 32px;
+        opacity: 1;
+        z-index: 7;
+    }
+    
+    .close:hover {
+        opacity: 1;
+    }
+    
+    .close:before,
+    .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #f2ff00;
+    }
+    
+    .close:before {
+        transform: rotate(45deg);
+    }
+    
+    .close:after {
+        transform: rotate(-45deg);
+    }
 </style>{% endblock head %} {% block body %}
+<a href="/donation" class="close"></a>
+
 <h1 class="sec-1-h">Donate Any Thing You Want</h1>
 <hr class="hr2">
 <section class="whole">
@@ -412,7 +447,7 @@
         }
 
 
-        alert('Thank You for filling the form')
+        alert('Thank You for filling the form. -  Our volunteer will pick the item soon ! ')
 
     }
 </script>

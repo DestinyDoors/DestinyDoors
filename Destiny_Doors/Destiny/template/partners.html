@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<style>
+    #head {
+        text-align: center;
+        margin: 0 0 0 600px;
+        font-weight: 100;
+    }
+    
+    #logout {
+        height: 50px;
+        width: 50px;
+    }
+    
+    section {
+        display: flex;
+    }
+    
+    .card img {
+        height: 150px;
+    }
+    
+    .card {
+        margin: 0 0 0 10px;
+    }
+    
+    .nav-item {
+        margin: 0 0 0 445px;
+    }
+    
+    .active {
+        font-size: 20px;
+        font-weight: bolder;
+    }
+</style>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg bg-light">
+
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Destiny Doors</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <h1 id="head"> Partners</h1>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+
+                    </li>
+                    <li>
+                        <a href="/booking"><img src="/static/icons8-calendar-13-48.png" alt=""></a>
+
+
+                    </li>
+
+
+                </ul>
+                <form class="d-flex" role="search">
+
+                    <a href="/logout"><img id="logout" src="/static/check-out.png" alt=""></a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <br><br>
+
+    <section>
+        {% for partners in Partner_list %}
+
+        <div class="card" style="width: 18rem; height: 18rem;">
+            <img src="/static/partnership_blog.webp" class="card-img-top" alt="...">
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><span>Name&nbsp; : </span>&emsp;{{partners.Name}}</li>
+                <li class="list-group-item"><span>Purpose&nbsp; : </span>&emsp;{{partners.Purpose}}</li>
+                <li class="list-group-item"><span>Date&nbsp; : </span>&emsp;{{partners.Date}}</li>
+            </ul>
+        </div><br> {% endfor %}</section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+
+</html>

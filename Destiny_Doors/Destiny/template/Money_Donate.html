@@ -144,8 +144,42 @@
     textarea {
         padding: 20px;
     }
+    /* close button */
+    
+    .close {
+        position: absolute;
+        right: 32px;
+        top: 32px;
+        width: 32px;
+        height: 32px;
+        opacity: 1;
+        z-index: 7;
+    }
+    
+    .close:hover {
+        opacity: 1;
+    }
+    
+    .close:before,
+    .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #f3d40a;
+    }
+    
+    .close:before {
+        transform: rotate(45deg);
+    }
+    
+    .close:after {
+        transform: rotate(-45deg);
+    }
 </style>{% endblock head %} {% block body %}
-
+<a href="/donation" class="close"></a>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='/donation';}"></iframe>
 <form class="form" id="form" onsubmit="return  validateForm();" method="POST">
     {% csrf_token %}
     <div class="row">
@@ -188,7 +222,7 @@
                 </div>
                 <div class="inputBox">
                     <span>CVV :</span>
-                    <input type="text" placeholder="123" id="cvv" name="cvv">
+                    <input type="password" placeholder="123" id="cvv" name="cvv">
                     <span id="cvvrror" style="color:red;" class="errorl"></span>
                 </div>
 

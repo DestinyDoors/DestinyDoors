@@ -15,8 +15,6 @@ admin.site.register(age_16_18y)
 admin.site.register(winterdonation)
 admin.site.register(moneydonate)
 admin.site.register(donateanything)
-admin.site.register(givemoney)
+admin.site.register(parent_adopted_form)
+admin.site.register(booking_table)
 
-admin.site.register(partnerreg)
-
-admin.site.register(adoptform)
